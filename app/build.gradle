@@ -50,4 +50,6 @@ dependencies {
 
     def fragment_version = "1.5.2"
     implementation "androidx.fragment:fragment-ktx:$fragment_version"
+
+    implementation 'com.jakewharton:disklrucache:2.0.2'
 }

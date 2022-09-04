@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ToyAndroid">
         <activity
-            android:name=".AsianToLickActivity"
+            android:name=".jsoup.AsianToLickActivity"
             android:exported="false" />
         <activity
             android:name="com.imdevil.playground.MainActivity"

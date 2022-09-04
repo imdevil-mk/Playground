@@ -1,14 +1,19 @@
 package com.imdevil.playground.image
 
+import android.annotation.SuppressLint
 import android.content.res.Resources
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.graphics.BitmapRegionDecoder
+import android.graphics.Rect
 import android.os.Bundle
+import android.os.ParcelFileDescriptor
 import android.text.format.Formatter
 import android.util.Log
 import android.widget.ImageView
 import com.imdevil.playground.R
 import com.imdevil.playground.base.LogActivity
+
 
 class ImageActivity : LogActivity() {
 
@@ -86,10 +91,10 @@ class ImageActivity : LogActivity() {
             imageView.setImageBitmap(bitmap)
         }
 
-        /*
+        /*  2600px * 1736px ---> inSampleSize = 2
         sampleBitmap: ImageView: height = 600 width = 600
         sampleBitmap: allocationByteCount = 4513600 = 4.51 MB
-        sampleBitmap: byteCount = 4513600
+        sampleBitmap: byteCount = 4513600  ---> actualSize(18054400)/pow(inSampleSize)
          */
     }
 
@@ -106,6 +111,7 @@ class ImageActivity : LogActivity() {
 
             // Calculate inSampleSize
             inSampleSize = calculateInSampleSize(this, reqWidth, reqHeight)
+            Log.d("sampleBitmap", "decodeSampledBitmapFromResource: inSampleSize = $inSampleSize")
 
             // Decode bitmap with inSampleSize set
             inJustDecodeBounds = false
@@ -123,6 +129,10 @@ class ImageActivity : LogActivity() {
     ): Int {
         // Raw height and width of image
         val (height: Int, width: Int) = options.run { outHeight to outWidth }
+        Log.d(
+            "sampleBitmap",
+            "calculateInSampleSize: bitmap actual height = $height width = $width"
+        )
         var inSampleSize = 1
 
         if (height > reqHeight || width > reqWidth) {
@@ -138,6 +148,19 @@ class ImageActivity : LogActivity() {
         }
 
         return inSampleSize
+    }
+
+    /*
+    加载大图
+    */
+    @SuppressLint("NewApi")
+    private fun bigBitmap(fd: ParcelFileDescriptor) {
+        val bitmapRegionDecoder: BitmapRegionDecoder = BitmapRegionDecoder.newInstance(fd)
+        val options = BitmapFactory.Options()
+        options.inPreferredConfig = Bitmap.Config.RGB_565
+        val bitmap = bitmapRegionDecoder.decodeRegion(
+            Rect(/* you need to set a rect */), options
+        )
     }
 
     private fun logBitmap(tag: String, bitmap: Bitmap, options: BitmapFactory.Options? = null) {
