@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.imdevil.interview.view.MyViewGroup xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.imdevil.playground.view.TouchActivity">
+
+    <com.imdevil.interview.view.MyView
+        android:id="@+id/child"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
+        android:background="@color/design_default_color_primary" />
+
+</com.imdevil.interview.view.MyViewGroup>
