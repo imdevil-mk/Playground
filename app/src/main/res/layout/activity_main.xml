@@ -54,11 +54,23 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Multi Item RecyclerView"
         android:onClick="goToMultiRecyclerViewActivity"
+        android:text="Multi Item RecyclerView"
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="@+id/view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/view"
         app:layout_constraintTop_toTopOf="@+id/view" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="AIDL"
+        android:textAllCaps="false"
+        android:onClick="goToAIDL"
+        app:layout_constraintBottom_toBottomOf="@+id/service"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/service"
+        app:layout_constraintTop_toTopOf="@+id/service" />
 </androidx.constraintlayout.widget.ConstraintLayout>

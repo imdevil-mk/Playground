@@ -12,6 +12,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ToyAndroid">
         <activity
+            android:name=".service.aidl.ClientActivity"
+            android:exported="false" />
+
+        <service
+            android:name=".service.aidl.RemoteService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":remote" />
+
+        <activity
             android:name=".jsoup.AsianToLickActivity"
             android:exported="false" />
         <activity

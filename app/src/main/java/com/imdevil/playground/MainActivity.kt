@@ -2,15 +2,21 @@ package com.imdevil.playground
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import com.imdevil.playground.base.LogActivity
 import com.imdevil.playground.fragment.ContainerActivity
 import com.imdevil.playground.image.ImageActivity
 import com.imdevil.playground.multirecyclerview.MultiRecyclerViewActivity
 import com.imdevil.playground.service.ServiceActivity
+import com.imdevil.playground.service.aidl.ClientActivity
 import com.imdevil.playground.view.TouchActivity
 
 class MainActivity : LogActivity() {
+
+    init {
+        Log.d(getLogTag(), ": init")
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,6 +29,10 @@ class MainActivity : LogActivity() {
 
     fun goToService(view: View) {
         startActivity(Intent(this, ServiceActivity::class.java))
+    }
+
+    fun goToAIDL(view: View) {
+        startActivity(Intent(this, ClientActivity::class.java))
     }
 
     fun goToView(view: View) {
