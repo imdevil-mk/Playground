@@ -17,7 +17,7 @@ class AsianToLickActivity : AppCompatActivity() {
 
         val netClient = OkHttpClient()
         val request = Request.Builder()
-            .url("https://asiantolick.com/ajax/buscar_posts.php?post=&cat=&tag=&search=&page=&index=1")
+            .url("https://asiantolick.com/ajax/buscar_posts.php?post=&cat=&tag=&search=&page=&index=0")
             .build()
 
         netClient.newCall(request).enqueue(object : Callback {
@@ -29,18 +29,27 @@ class AsianToLickActivity : AppCompatActivity() {
                 val doc = Jsoup.parseBodyFragment(response.body!!.string())
                 val albums = doc.getElementsByTag("a")
                 for (album in albums) {
-                    val links = album.attr("href")
-                    val imgWrap = album.getElementsByClass("background_miniatura")
-                    val img = (imgWrap.firstOrNull())?.getElementsByTag("img")?.firstOrNull()
-                    img?.let {
-                        val src = img.attr("src")
-                        val name = img.attr("alt")
-                        val postId = img.attr("post-id")
-                        Log.d(TAG, "onResponse: name = $name")
-                        Log.d(TAG, "onResponse: thumb = $src")
-                        Log.d(TAG, "onResponse: links = $links")
-                        Log.d(TAG, "onResponse: postId = $postId")
-                    }
+                    val href = album.attr("href")
+                    val id = album.attr("id")
+
+                    val cover = album.getElementsByClass("background_miniatura")
+                        .first()!!
+                        .getElementsByTag("img")
+                        .first()!!
+                    val src = cover.attr("src")
+                    val dataSrc = cover.attr("data-src")
+                    val originalSrc = cover.attr("src-original")
+                    val prevSrc = cover.attr("src-prev")
+                    val alt = cover.attr("attr")
+                    val postId = cover.attr("post-id")
+
+
+                    val title = album.getElementsByClass("base_tt")
+                        .first()!!
+                        .getElementsByTag("span")
+                        .first()!!
+                        .data()
+
                 }
             }
 
