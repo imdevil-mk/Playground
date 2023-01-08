@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.imdevil.playground">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -53,6 +54,20 @@
             android:name="com.imdevil.playground.service.MyService"
             android:enabled="true"
             android:exported="true" />
+
+        <service
+            android:name=".media.MusicService"
+            android:enabled="true"
+            android:exported="true"
+            tools:ignore="ExportedService">
+            <intent-filter>
+                <action android:name="android.media.browse.MediaBrowserService" />
+            </intent-filter>
+        </service>
+
+        <activity
+            android:name=".media.MusicActivity"
+            android:exported="false"></activity>
     </application>
 
 </manifest>

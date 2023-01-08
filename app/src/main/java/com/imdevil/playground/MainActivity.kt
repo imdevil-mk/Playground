@@ -7,6 +7,7 @@ import android.view.View
 import com.imdevil.playground.base.LogActivity
 import com.imdevil.playground.fragment.ContainerActivity
 import com.imdevil.playground.image.ImageActivity
+import com.imdevil.playground.media.MusicActivity
 import com.imdevil.playground.multirecyclerview.MultiRecyclerViewActivity
 import com.imdevil.playground.service.ServiceActivity
 import com.imdevil.playground.service.aidl.ClientActivity
@@ -46,6 +47,9 @@ class MainActivity : LogActivity() {
 
     fun goToMultiRecyclerViewActivity(view: View) {
         startActivity(Intent(this, MultiRecyclerViewActivity::class.java))
+    }
 
+    fun goToMusic(view: View) {
+        startActivity(Intent(this, MusicActivity::class.java))
     }
 }
