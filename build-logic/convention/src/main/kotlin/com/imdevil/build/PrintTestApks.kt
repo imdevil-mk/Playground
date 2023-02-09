@@ -35,7 +35,7 @@ internal fun Project.configurePrintApksTask(extension: AndroidComponentsExtensio
             val loader = variant.artifacts.getBuiltArtifactsLoader()
             val artifact = variant.androidTest?.artifacts?.get(SingleArtifact.APK)
             val javaSources = variant.androidTest?.sources?.java?.all
-            val kotlinSources = variant.androidTest?.sources?.kotlin?.all
+            val kotlinSources = variant.androidTest?.sources?.getByName("kotlin")?.all
 
             val testSources = if (javaSources != null && kotlinSources != null) {
                 javaSources.zip(kotlinSources) { javaDirs, kotlinDirs ->

@@ -1,13 +1,13 @@
 [versions]
-androidGradlePlugin = "7.3.1"
+androidGradlePlugin = "7.2.1"
 
 androidMaterial = "1.6.1"
 
-androidxCore = "1.9.0"
+androidxCore = "1.8.0"
 androidxAppCompat = "1.5.1"
-androidxActivity = "1.6.1"
+androidxActivity = "1.5.1"
 androidxConstraintlayout = "2.0.4"
-androidxLifecycle = "2.6.0-alpha03"
+androidxLifecycle = "2.5.1"
 androidxFragment = "1.5.4"
 androidxNavigation = "2.5.3"
 androidxViewPager2 = "1.0.0"
@@ -47,7 +47,7 @@ kotlinxSerializationJson = "1.4.1"
 retrofitKotlinxSerializationJson = "0.8.0"
 
 accompanist = "0.27.0"
-androidDesugarJdkLibs = "1.2.0"
+androidDesugarJdkLibs = "1.1.0"
 
 coil = "2.2.2"
 jacoco = "0.8.7"
