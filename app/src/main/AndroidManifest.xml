@@ -69,6 +69,10 @@
         <activity
             android:name=".media.MusicActivity"
             android:exported="false" />
+
+        <activity
+            android:name=".view.multistate.MultiStateActivity"
+            android:exported="false"></activity>
     </application>
 
 </manifest>

@@ -12,6 +12,7 @@ import com.imdevil.playground.multirecyclerview.MultiRecyclerViewActivity
 import com.imdevil.playground.service.ServiceActivity
 import com.imdevil.playground.service.aidl.ClientActivity
 import com.imdevil.playground.view.TouchActivity
+import com.imdevil.playground.view.multistate.MultiStateActivity
 
 class MainActivity : LogActivity() {
 
@@ -51,5 +52,9 @@ class MainActivity : LogActivity() {
 
     fun goToMusic(view: View) {
         startActivity(Intent(this, MusicActivity::class.java))
+    }
+
+    fun goToMultiStateActivity(view: View) {
+        startActivity(Intent(this, MultiStateActivity::class.java))
     }
 }
