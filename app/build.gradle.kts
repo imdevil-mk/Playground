@@ -1,5 +1,7 @@
+@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     id("imdevil.build.application")
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -42,6 +44,11 @@ dependencies {
     // network
     implementation(libs.okhttp.core)
     implementation(libs.okhttp.logging)
+
+    // moshi
+    implementation(libs.moshi.core)
+    implementation(libs.moshi.kotlin)
+    ksp(libs.moshi.kotlin.codegen)
 
     implementation(libs.androidx.media)
 
