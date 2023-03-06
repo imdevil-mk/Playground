@@ -3,8 +3,6 @@ package com.imdevil.playground.view
 import android.os.Bundle
 import android.util.Log
 import android.view.MotionEvent
-import com.imdevil.interview.view.MyView
-import com.imdevil.interview.view.MyViewGroup
 import com.imdevil.playground.R
 import com.imdevil.playground.base.LogActivity
 

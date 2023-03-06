@@ -1,4 +1,4 @@
-package com.imdevil.interview.view
+package com.imdevil.playground.view
 
 import android.content.Context
 import android.util.AttributeSet
