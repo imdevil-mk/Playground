@@ -2,7 +2,6 @@ package com.imdevil.playground.view
 
 import android.os.Bundle
 import android.util.Log
-import android.view.MotionEvent
 import com.imdevil.playground.R
 import com.imdevil.playground.base.LogActivity
 
@@ -20,15 +19,10 @@ class TouchActivity : LogActivity() {
         }
     }
 
-
+    /*
     override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
-        val log = when (ev?.actionMasked) {
-            MotionEvent.ACTION_DOWN -> "MotionEvent.ACTION_DOWN"
-            MotionEvent.ACTION_MOVE -> "MotionEvent.ACTION_MOVE"
-            MotionEvent.ACTION_UP -> "MotionEvent.ACTION_UP"
-            else -> "else"
-        }
-        Log.d("TAG-${getLogTag()}", "dispatchTouchEvent: $log")
+        ev?.log(getLogTag(), "dispatchTouchEvent")
         return super.dispatchTouchEvent(ev)
     }
+    */
 }
