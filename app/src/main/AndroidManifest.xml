@@ -72,7 +72,11 @@
 
         <activity
             android:name=".view.multistate.MultiStateActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
+
+        <activity
+            android:name=".viewpager2.ViewPager2Activity"
+            android:exported="false" />
     </application>
 
 </manifest>

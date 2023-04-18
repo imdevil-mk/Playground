@@ -13,6 +13,7 @@ import com.imdevil.playground.service.ServiceActivity
 import com.imdevil.playground.service.aidl.ClientActivity
 import com.imdevil.playground.view.TouchActivity
 import com.imdevil.playground.view.multistate.MultiStateActivity
+import com.imdevil.playground.viewpager2.ViewPager2Activity
 
 class MainActivity : LogActivity() {
 
@@ -56,5 +57,9 @@ class MainActivity : LogActivity() {
 
     fun goToMultiStateActivity(view: View) {
         startActivity(Intent(this, MultiStateActivity::class.java))
+    }
+
+    fun goToViewPagerActivity(view: View) {
+        startActivity(Intent(this, ViewPager2Activity::class.java))
     }
 }
