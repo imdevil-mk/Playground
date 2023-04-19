@@ -6,7 +6,7 @@ import android.os.Parcelable
 class Book() : Parcelable {
 
     var id: Int = 0
-    var name: String? = null
+    var name: String = ""
 
     companion object CREATOR : Parcelable.Creator<Book> {
         override fun createFromParcel(parcel: Parcel): Book {
@@ -29,7 +29,7 @@ class Book() : Parcelable {
 
     fun readFromParcel(inParcel: Parcel) {
         id = inParcel.readInt()
-        name = inParcel.readString()
+        name = inParcel.readString() ?: ""
     }
 
     override fun describeContents(): Int {

@@ -13,6 +13,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ToyAndroid">
         <activity
+            android:name="com.imdevil.playground.MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
             android:name=".service.aidl.ClientActivity"
             android:exported="false" />
 
@@ -22,38 +32,40 @@
             android:exported="true"
             android:process=":remote" />
 
+        <service
+            android:name="com.imdevil.playground.service.LocalService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <service
+            android:name="com.imdevil.playground.service.MessengerService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":remote" />
+
         <activity
             android:name=".jsoup.AsianToLickActivity"
             android:exported="false" />
-        <activity
-            android:name="com.imdevil.playground.MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
         <activity
             android:name="com.imdevil.playground.image.ImageActivity"
             android:exported="false" />
+
         <activity
             android:name=".view.TouchActivity"
             android:exported="false" />
+
         <activity
             android:name="com.imdevil.playground.service.ServiceActivity"
             android:exported="false" />
+
         <activity
             android:name="com.imdevil.playground.fragment.ContainerActivity"
             android:exported="true" />
+
         <activity
             android:name=".multirecyclerview.MultiRecyclerViewActivity"
             android:exported="false" />
-
-        <service
-            android:name="com.imdevil.playground.service.MyService"
-            android:enabled="true"
-            android:exported="true" />
 
         <service
             android:name=".media.MusicService"

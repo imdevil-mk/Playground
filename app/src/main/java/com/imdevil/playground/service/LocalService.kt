@@ -7,11 +7,9 @@ import android.os.IBinder
 import android.util.Log
 import java.util.*
 
-private const val TAG = "MyService"
+private const val TAG = "LocalService"
 
-class MyService : Service() {
-
-
+class LocalService : Service() {
     // Binder given to clients
     private val binder = LocalBinder()
 
@@ -28,11 +26,22 @@ class MyService : Service() {
      */
     inner class LocalBinder : Binder() {
         // Return this instance of LocalService so clients can call public methods
-        fun getService(): MyService = this@MyService
+        fun getService(): LocalService = this@LocalService
+    }
+
+    override fun onCreate() {
+        Log.d(TAG, "onCreate: ")
+        super.onCreate()
     }
 
     override fun onBind(intent: Intent): IBinder {
+        Log.d(TAG, "onBind: ")
         return binder
+    }
+
+    override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+        Log.d(TAG, "onStartCommand: ")
+        return super.onStartCommand(intent, flags, startId)
     }
 
     override fun onUnbind(intent: Intent?): Boolean {
