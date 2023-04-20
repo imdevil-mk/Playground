@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import com.imdevil.playground.base.LogActivity
+import com.imdevil.playground.fragment.BottomNavigationActivity
 import com.imdevil.playground.fragment.ContainerActivity
 import com.imdevil.playground.image.ImageActivity
 import com.imdevil.playground.media.MusicActivity
@@ -61,5 +62,9 @@ class MainActivity : LogActivity() {
 
     fun goToViewPagerActivity(view: View) {
         startActivity(Intent(this, ViewPager2Activity::class.java))
+    }
+
+    fun goToBottomNavigationActivity(view: View) {
+        startActivity(Intent(this, BottomNavigationActivity::class.java))
     }
 }

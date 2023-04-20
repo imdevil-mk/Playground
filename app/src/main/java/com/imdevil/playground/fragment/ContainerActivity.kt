@@ -1,59 +1,119 @@
 package com.imdevil.playground.fragment
 
-import android.content.res.Configuration
 import android.os.Bundle
 import android.util.Log
-import android.view.View
+import android.view.KeyEvent
+import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.commit
 import com.imdevil.playground.R
 import com.imdevil.playground.base.LogActivity
+import com.imdevil.playground.databinding.ActivityContainerBinding
 
 class ContainerActivity : LogActivity() {
 
-    var n = 0
+    private lateinit var binding: ActivityContainerBinding
 
-    private val one = OneFragment.newInstance()
-    private val two = TwoFragment.newInstance()
-    private val three = ThreeFragment.newInstance()
-
-    init {
-        Log.d(getLogTag(), ": init $this")
-    }
+    override fun getLogTag() = "Fragment-ContainerActivity"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_container)
-    }
+        binding = ActivityContainerBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-    override fun onConfigurationChanged(newConfig: Configuration) {
-        Log.d(getLogTag(), "onConfigurationChanged: ")
-        super.onConfigurationChanged(newConfig)
-    }
-
-    fun fragment(view: View) {
-
-        supportFragmentManager.commit {
-            when (n) {
-                0 -> add(R.id.container, one, "One")
-                1 -> add(R.id.container, two, "Two")
-                2 -> supportFragmentManager.findFragmentByTag("One")?.let { remove(it) }
-                3 -> add(R.id.container, one, "One")
-                4 -> replace(R.id.container, three)
-                5 -> {
-                    add(R.id.container, one)
-                    add(R.id.container, two)
-                    hide(one)
-                }
-                6 -> {
-                    detach(one)
-                }
-                7 -> {
-                    attach(one)
-                    show(one)
-                }
+        binding.back.setOnClickListener {
+            with(Runtime.getRuntime()) {
+                exec("input keyevent " + KeyEvent.KEYCODE_BACK)
             }
-            n++
-            //addToBackStack(n.toString())
         }
+
+        binding.backstack.setOnClickListener {
+            supportFragmentManager.logBackStack(getLogTag(), "------")
+        }
+
+        binding.add.setOnClickListener {
+            supportFragmentManager.commit {
+                add(R.id.container, ColorLogFragment.newInstance("add", R.color.peachpuff), "add")
+            }
+        }
+
+        binding.remove.setOnClickListener {
+            supportFragmentManager.commit {
+                supportFragmentManager.findFragmentByTag("add")?.let { remove(it) }
+            }
+        }
+
+        binding.removeWithBackStack.setOnClickListener {
+            supportFragmentManager.commit {
+                supportFragmentManager.findFragmentByTag("add")?.let { remove(it) }
+                addToBackStack("removeWithBackStack")
+            }
+        }
+
+        binding.addWithBackStack.setOnClickListener {
+            supportFragmentManager.commit {
+                add(
+                    R.id.container,
+                    ColorLogFragment.newInstance("addWithBackStack", R.color.crimson),
+                    "addWithBackStack"
+                )
+                addToBackStack("addWithBackStack")
+            }
+        }
+
+        binding.remove2.setOnClickListener {
+            supportFragmentManager.commit {
+                supportFragmentManager.findFragmentByTag("addWithBackStack")?.let { remove(it) }
+            }
+        }
+
+        binding.removeWithBackStack2.setOnClickListener {
+            supportFragmentManager.commit {
+                supportFragmentManager.findFragmentByTag("addWithBackStack")?.let { remove(it) }
+                addToBackStack("removeWithBackStack2")
+            }
+        }
+
+        binding.replace.setOnClickListener {
+            supportFragmentManager.commit {
+                replace(R.id.container, ColorLogFragment.newInstance("replace", R.color.greenyellow))
+            }
+        }
+
+        binding.replaceWithBackStack.setOnClickListener {
+            supportFragmentManager.commit {
+                replace(R.id.container, ColorLogFragment.newInstance("replaceWithBackStack", R.color.darkorchid))
+                addToBackStack("replaceWithBackStack")
+            }
+        }
+
+        binding.hide.setOnClickListener {
+            supportFragmentManager.commit {
+                supportFragmentManager.findFragmentByTag("add")?.let { hide(it) }
+            }
+        }
+
+        binding.show.setOnClickListener {
+            supportFragmentManager.commit {
+                supportFragmentManager.findFragmentByTag("add")?.let { show(it) }
+            }
+        }
+
+        binding.detach.setOnClickListener {
+            supportFragmentManager.commit {
+                supportFragmentManager.findFragmentByTag("add")?.let { detach(it) }
+            }
+        }
+
+        binding.attach.setOnClickListener {
+            supportFragmentManager.commit {
+                supportFragmentManager.findFragmentByTag("add")?.let { attach(it) }
+            }
+        }
+    }
+}
+
+fun FragmentManager.logBackStack(tag: String, info: String) {
+    for (i in 0 until backStackEntryCount) {
+        Log.d(tag, "$info: ${getBackStackEntryAt(i)}")
     }
 }

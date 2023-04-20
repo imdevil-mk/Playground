@@ -21,7 +21,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".service.aidl.ClientActivity"
             android:exported="false" />
@@ -31,12 +30,10 @@
             android:enabled="true"
             android:exported="true"
             android:process=":remote" />
-
         <service
             android:name="com.imdevil.playground.service.LocalService"
             android:enabled="true"
             android:exported="true" />
-
         <service
             android:name="com.imdevil.playground.service.MessengerService"
             android:enabled="true"
@@ -46,23 +43,18 @@
         <activity
             android:name=".jsoup.AsianToLickActivity"
             android:exported="false" />
-
         <activity
             android:name="com.imdevil.playground.image.ImageActivity"
             android:exported="false" />
-
         <activity
             android:name=".view.TouchActivity"
             android:exported="false" />
-
         <activity
             android:name="com.imdevil.playground.service.ServiceActivity"
             android:exported="false" />
-
         <activity
-            android:name="com.imdevil.playground.fragment.ContainerActivity"
+            android:name=".fragment.ContainerActivity"
             android:exported="true" />
-
         <activity
             android:name=".multirecyclerview.MultiRecyclerViewActivity"
             android:exported="false" />
@@ -81,14 +73,17 @@
         <activity
             android:name=".media.MusicActivity"
             android:exported="false" />
-
         <activity
             android:name=".view.multistate.MultiStateActivity"
             android:exported="false" />
-
         <activity
             android:name=".viewpager2.ViewPager2Activity"
             android:exported="false" />
+
+        <activity
+            android:name=".fragment.BottomNavigationActivity"
+            android:exported="false"
+            android:label="@string/title_activity_bottom_navigation" />
     </application>
 
 </manifest>

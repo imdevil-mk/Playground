@@ -10,8 +10,8 @@ import androidx.fragment.app.Fragment
 
 abstract class LogFragment : Fragment() {
 
-    fun getLogTag(): String {
-        return this.javaClass.name
+    open fun getLogTag(): String {
+        return "Fragment-${this.javaClass.simpleName}"
     }
 
     override fun onAttach(context: Context) {

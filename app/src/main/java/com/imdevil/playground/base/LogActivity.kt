@@ -1,5 +1,6 @@
 package com.imdevil.playground.base
 
+import android.content.res.Configuration
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.util.Log
@@ -7,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 
 abstract class LogActivity : AppCompatActivity() {
 
-    fun getLogTag(): String {
+    open fun getLogTag(): String {
         return this.javaClass.name
     }
 
@@ -49,6 +50,11 @@ abstract class LogActivity : AppCompatActivity() {
     override fun onStop() {
         super.onStop()
         Log.d(getLogTag(), "onStop: ")
+    }
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        Log.d(getLogTag(), "onConfigurationChanged: ")
     }
 
     override fun onDestroy() {

@@ -6,20 +6,144 @@
     android:layout_height="match_parent"
     tools:context=".fragment.ContainerActivity">
 
-    <FrameLayout
+    <androidx.fragment.app.FragmentContainerView
         android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@id/btn"
+        android:layout_height="300dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btn"
-        android:layout_width="match_parent"
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="fragment"
-        android:text="fragment"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/container" />
+        android:layout_marginTop="10dp"
+        android:text="back"
+        app:layout_constraintEnd_toStartOf="@id/backstack"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/container" />
+
+    <Button
+        android:id="@+id/backstack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="backstack"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/back"
+        app:layout_constraintTop_toBottomOf="@+id/container" />
+
+    <Button
+        android:id="@+id/add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="add"
+        app:layout_constraintEnd_toStartOf="@id/remove"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/back" />
+
+    <Button
+        android:id="@+id/remove"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="remove"
+        app:layout_constraintEnd_toStartOf="@id/removeWithBackStack"
+        app:layout_constraintStart_toEndOf="@id/add"
+        app:layout_constraintTop_toTopOf="@id/add" />
+
+    <Button
+        android:id="@+id/removeWithBackStack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="removeWithBackStack"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/remove"
+        app:layout_constraintTop_toTopOf="@id/add" />
+
+    <Button
+        android:id="@+id/addWithBackStack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="addWithBackStack"
+        app:layout_constraintEnd_toStartOf="@id/remove2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/add" />
+
+    <Button
+        android:id="@+id/remove2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="remove"
+        app:layout_constraintEnd_toStartOf="@id/removeWithBackStack2"
+        app:layout_constraintStart_toEndOf="@id/addWithBackStack"
+        app:layout_constraintTop_toTopOf="@id/addWithBackStack" />
+
+    <Button
+        android:id="@+id/removeWithBackStack2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="removeWithBS"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/remove2"
+        app:layout_constraintTop_toTopOf="@id/addWithBackStack" />
+
+    <Button
+        android:id="@+id/replace"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="replace"
+        app:layout_constraintEnd_toStartOf="@id/replaceWithBackStack"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addWithBackStack" />
+
+    <Button
+        android:id="@+id/replaceWithBackStack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="replaceWithBackStack"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/replace"
+        app:layout_constraintTop_toTopOf="@id/replace" />
+
+    <Button
+        android:id="@+id/hide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="hide"
+        app:layout_constraintEnd_toStartOf="@id/show"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/replace" />
+
+    <Button
+        android:id="@+id/show"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="show"
+        app:layout_constraintEnd_toStartOf="@id/detach"
+        app:layout_constraintStart_toEndOf="@id/hide"
+        app:layout_constraintTop_toTopOf="@id/hide" />
+
+    <Button
+        android:id="@+id/detach"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="detach"
+        app:layout_constraintEnd_toStartOf="@id/attach"
+        app:layout_constraintStart_toEndOf="@id/show"
+        app:layout_constraintTop_toTopOf="@id/hide" />
+
+    <Button
+        android:id="@+id/attach"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="attach"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/detach"
+        app:layout_constraintTop_toTopOf="@id/hide" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
