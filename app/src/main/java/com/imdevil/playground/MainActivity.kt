@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import com.imdevil.kapt.annotation.OnClick
 import com.imdevil.playground.base.LogActivity
 import com.imdevil.playground.fragment.BottomNavigationActivity
 import com.imdevil.playground.fragment.ContainerActivity
@@ -66,5 +67,11 @@ class MainActivity : LogActivity() {
 
     fun goToBottomNavigationActivity(view: View) {
         startActivity(Intent(this, BottomNavigationActivity::class.java))
+    }
+
+    @OnClick(viewId = R.id.add, activityClz = ViewPager2Activity::class)
+    fun test() {
+        val clz = ViewPager2Activity::class
+        Intent(this, clz.java)
     }
 }

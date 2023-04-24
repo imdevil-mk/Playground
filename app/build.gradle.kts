@@ -2,6 +2,7 @@
 plugins {
     id("imdevil.build.application")
     alias(libs.plugins.ksp)
+    id("org.jetbrains.kotlin.kapt")
 }
 
 android {
@@ -56,6 +57,9 @@ dependencies {
     implementation(libs.disklrucache)
     implementation(libs.rxjava3)
     implementation(libs.rxandroid)
+
+    implementation(project(":lib_kapt"))
+    kapt(project(":lib_kapt"))
 
     //for test
     testImplementation(libs.junit4)

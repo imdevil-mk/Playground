@@ -18,3 +18,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Playground"
 include(":app")
+include(":lib_kapt")
