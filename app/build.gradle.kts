@@ -24,6 +24,15 @@ android {
             )
         }
     }
+
+    applicationVariants.all {
+        val variantName = name
+        sourceSets {
+            getByName("main") {
+                java.srcDir(File("build/generated/ksp/$variantName/kotlin"))
+            }
+        }
+    }
 }
 
 dependencies {
@@ -60,6 +69,9 @@ dependencies {
 
     implementation(project(":lib_kapt"))
     kapt(project(":lib_kapt"))
+
+    implementation(project(":lib_ksp"))
+    ksp(project(":lib_ksp"))
 
     //for test
     testImplementation(libs.junit4)

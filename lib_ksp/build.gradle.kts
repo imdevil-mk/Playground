@@ -11,4 +11,5 @@ java {
 
 dependencies {
     implementation(libs.kotlin.poet)
+    implementation(libs.ksp.api)
 }

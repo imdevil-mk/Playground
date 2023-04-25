@@ -152,6 +152,8 @@ disklrucache = { group = "com.jakewharton", name = "disklrucache", version.ref =
 rxjava3 = { group = "io.reactivex.rxjava3", name = "rxjava", version.ref = "rxjava" }
 rxandroid = { group = "io.reactivex.rxjava3", name = "rxandroid", version.ref = "rxandroid" }
 
+ksp-api = { group = "com.google.devtools.ksp", name = "symbol-processing-api", version.ref = "ksp" }
+
 [plugins]
 android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
 android-library = { id = "com.android.library", version.ref = "androidGradlePlugin" }
