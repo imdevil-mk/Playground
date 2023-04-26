@@ -9,6 +9,7 @@ interface IBookManager {
     void addBookIn(in Book book);
     int addBookOut(out Book book);
     void addBookInOut(inout Book book);
+    oneway void addBookOneWay(in Book book);
     void registerBookChangeListener(IBookChangeListener listener);
     void unregisterBookChangeListener(IBookChangeListener listener);
 }

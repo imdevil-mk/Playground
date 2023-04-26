@@ -60,6 +60,8 @@ dependencies {
     implementation(libs.moshi.kotlin)
     ksp(libs.moshi.kotlin.codegen)
 
+    implementation(libs.glide.core)
+
     implementation(libs.androidx.media)
 
     implementation(libs.jsoup)

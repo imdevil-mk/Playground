@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.imdevil.playground.view.scroll.ScrollableLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <View
+        android:id="@+id/scroll_header"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@color/pink" />
+
+    <View
+        android:id="@+id/pin_header"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@color/greenyellow" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:itemCount="100"
+        tools:listitem="@layout/demo_list_item" />
+
+</com.imdevil.playground.view.scroll.ScrollableLinearLayout>

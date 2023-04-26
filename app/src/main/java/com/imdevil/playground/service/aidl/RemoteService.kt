@@ -46,6 +46,10 @@ class RemoteService : Service() {
             Log.d(TAG, "addBookInOut: $book")
         }
 
+        override fun addBookOneWay(book: Book) {
+
+        }
+
         override fun getBookList(): MutableList<Book> {
             Log.d(TAG, "getBookListOneWay: ${Thread.currentThread()}")
             Thread.sleep(3000)

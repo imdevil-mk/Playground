@@ -63,5 +63,6 @@ class MyViewGroup @JvmOverloads constructor(
 4，View拦截DOWN事件并请求parent.requestDisallowInterceptTouchEvent(true)，而后在View在处理某个MOVE时请求
    parent.requestDisallowInterceptTouchEvent(false),则ViewGroup的onInterceptTouchEvent()可以接收到接下
    来的事件
-
+5，View拦截了DOWN事件，ViewGroup的onTouchEvent()不会接收到DOWN事件，而后ViewGroup在onInterceptTouchEvent()
+   中拦截了MOVE事件，ViewGroup的onTouchEvent()不会接受到这个MOVE事件，从下个MOVE开始接受。
  */

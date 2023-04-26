@@ -15,6 +15,7 @@ import com.imdevil.playground.service.ServiceActivity
 import com.imdevil.playground.service.aidl.ClientActivity
 import com.imdevil.playground.view.TouchActivity
 import com.imdevil.playground.view.multistate.MultiStateActivity
+import com.imdevil.playground.view.scroll.ScrollListActivity
 import com.imdevil.playground.viewpager2.ViewPager2Activity
 
 class MainActivity : LogActivity() {
@@ -73,5 +74,9 @@ class MainActivity : LogActivity() {
     fun test() {
         val clz = ViewPager2Activity::class
         Intent(this, clz.java)
+    }
+
+    fun goToScrollListActivity(view: View) {
+        startActivity(Intent(this, ScrollListActivity::class.java))
     }
 }
