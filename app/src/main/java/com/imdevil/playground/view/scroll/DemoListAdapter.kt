@@ -5,8 +5,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.imdevil.playground.R
 import com.imdevil.playground.databinding.DemoListItemBinding
 
 class DemoListAdapter : ListAdapter<DemoData, DemoHolder>(DemoDataDiffCallBack()) {
@@ -43,14 +41,13 @@ class DemoDataDiffCallBack : DiffUtil.ItemCallback<DemoData>() {
 class DemoHolder(private val binding: DemoListItemBinding) : RecyclerView.ViewHolder(binding.root) {
     fun bind(data: DemoData) {
         binding.name.text = data.name
-        Glide.with(binding.root).load(data.icon).into(binding.icon)
     }
 }
 
-fun prepareDemoData(): List<DemoData> {
-    val datas = mutableListOf<DemoData>()
+fun obtainSimpleListData(msg: String): List<DemoData> {
+    val lists = mutableListOf<DemoData>()
     for (i in 0..100) {
-        datas += DemoData(1, i.toString(), R.drawable.def_mdpi)
+        lists += DemoData(i, "$i-$msg", -1)
     }
-    return datas
+    return lists
 }

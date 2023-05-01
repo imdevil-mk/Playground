@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@color/md_theme_light_primary"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="Behavior嵌套滑动展示"
+        app:layout_behavior="com.imdevil.playground.view.scroll.coordinatorLayout.NestedHeaderBehavior" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_behavior="com.imdevil.playground.view.scroll.coordinatorLayout.NestedScrollingBehavior"
+        tools:itemCount="100"
+        tools:listitem="@layout/demo_list_item" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

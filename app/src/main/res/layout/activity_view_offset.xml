@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.imdevil.playground.view.offset.HeaderFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@color/md_theme_light_primary"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="Behavior嵌套滑动展示" />
+
+    <ImageView
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/cute_dog" />
+
+</com.imdevil.playground.view.offset.HeaderFrameLayout>

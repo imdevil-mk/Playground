@@ -1,7 +1,8 @@
-package com.imdevil.playground.view.scroll
+package com.imdevil.playground.view.scroll.tradition
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.graphics.Canvas
 import android.util.AttributeSet
 import android.util.Log
 import android.view.MotionEvent
@@ -10,9 +11,9 @@ import android.widget.LinearLayout
 import com.imdevil.playground.view.log
 import kotlin.math.abs
 
-private const val TAG = "ScrollableLinearLayout"
+private const val TAG = "InterceptLinearLayout"
 
-class ScrollableLinearLayout @JvmOverloads constructor(
+class InterceptLinearLayout @JvmOverloads constructor(
     private val mContext: Context,
     private val attributeSet: AttributeSet,
     private val flag: Int = 0,
@@ -26,7 +27,7 @@ class ScrollableLinearLayout @JvmOverloads constructor(
     }
 
     override fun onInterceptTouchEvent(ev: MotionEvent): Boolean {
-        ev.log("ScrollableLinearLayout", "onInterceptTouchEvent")
+        ev.log("InterceptLinearLayout", "onInterceptTouchEvent")
         return when (ev.actionMasked) {
             MotionEvent.ACTION_DOWN -> {
                 startY = ev.y
@@ -91,5 +92,15 @@ class ScrollableLinearLayout @JvmOverloads constructor(
         } else {
             scrollY > 0
         }
+    }
+
+    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec)
+        Log.d(TAG, "onMeasure: ++++++++++++++++")
+    }
+
+    override fun onDraw(canvas: Canvas?) {
+        super.onDraw(canvas)
+        Log.d(TAG, "onDraw: ++++++++++")
     }
 }

@@ -1,23 +1,23 @@
-package com.imdevil.playground.view.scroll
+package com.imdevil.playground.view.scroll.tradition
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.imdevil.playground.R
+import com.imdevil.playground.view.scroll.DemoListAdapter
+import com.imdevil.playground.view.scroll.obtainSimpleListData
 
-class ScrollListActivity : AppCompatActivity() {
+class TraditionParentInterceptActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         //setContentView(R.layout.activity_scroll_list_with_nestedscrollview)
-        setContentView(R.layout.activity_scroll_list_with_scrollablelinearlayout)
+        setContentView(R.layout.activity_scroll_list_with_intercept_linearlayout)
 
         val rv = findViewById<RecyclerView>(R.id.list)
-        rv.layoutManager = LinearLayoutManager(baseContext)
         rv.adapter = DemoListAdapter().apply {
-            submitList(prepareDemoData())
+            submitList(obtainSimpleListData("外部拦截法"))
         }
     }
 }

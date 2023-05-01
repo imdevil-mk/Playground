@@ -38,7 +38,7 @@ class ViewPager2Activity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.mainViewPager.adapter =
-            MainViewPagerAdapter(supportFragmentManager, lifecycle, fragmentCreators)
+            ViewPager2Adapter(supportFragmentManager, lifecycle, fragmentCreators)
 
         binding.mainViewPager.currentItem = 0
     }

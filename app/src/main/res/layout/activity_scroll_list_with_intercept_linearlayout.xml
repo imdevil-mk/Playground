@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.imdevil.playground.view.scroll.ScrollableLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.imdevil.playground.view.scroll.tradition.InterceptLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <View
         android:id="@+id/scroll_header"
@@ -21,7 +22,8 @@
         android:id="@+id/list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:itemCount="100"
         tools:listitem="@layout/demo_list_item" />
 
-</com.imdevil.playground.view.scroll.ScrollableLinearLayout>
+</com.imdevil.playground.view.scroll.tradition.InterceptLinearLayout>

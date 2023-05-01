@@ -19,7 +19,7 @@
 
 
     <Button
-        android:id="@+id/music"
+        android:id="@+id/media_session"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="goToMusic"
@@ -57,13 +57,13 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:onClick="goToImageLoad"
-        android:text="Image Load"
+        android:text="Image"
         android:textAllCaps="false"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/multi_item_rv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="goToMultiRecyclerViewActivity"
@@ -75,7 +75,7 @@
         app:layout_constraintTop_toTopOf="@+id/view" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/aidl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="goToAIDL"
@@ -87,11 +87,11 @@
         app:layout_constraintTop_toTopOf="@+id/service" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/multi_state_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="goToMultiStateActivity"
-        android:text="MultiState"
+        android:text="MultiStateView"
         app:layout_constraintBottom_toBottomOf="@+id/image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.49"
@@ -99,11 +99,11 @@
         app:layout_constraintTop_toTopOf="@+id/image" />
 
     <Button
-        android:id="@+id/view_pager"
+        android:id="@+id/view_pager2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="goToViewPagerActivity"
-        android:text="ViewPagerActivity"
+        android:text="ViewPager2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/image" />
 
@@ -112,18 +112,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="goToBottomNavigationActivity"
-        android:text="BottomNavigationActivity"
+        android:text="Navigation"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/view_pager"
-        app:layout_constraintTop_toTopOf="@id/view_pager" />
+        app:layout_constraintStart_toEndOf="@+id/view_pager2"
+        app:layout_constraintTop_toTopOf="@id/view_pager2" />
 
     <Button
-        android:id="@+id/scroll_list"
+        android:id="@+id/scroll"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="goToScrollListActivity"
-        android:text="ScrollList"
+        android:text="Scroll"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view_pager" />
+        app:layout_constraintTop_toBottomOf="@+id/view_pager2" />
 </androidx.constraintlayout.widget.ConstraintLayout>

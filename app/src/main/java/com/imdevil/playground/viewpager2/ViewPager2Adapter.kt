@@ -5,7 +5,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
 
-class MainViewPagerAdapter(
+class ViewPager2Adapter(
     fragmentManager: FragmentManager,
     lifecycle: Lifecycle,
     private val fragmentCreators: List<() -> Fragment>,

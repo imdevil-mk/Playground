@@ -55,7 +55,7 @@ class ViewPager2Fragment : Fragment() {
         color?.let { binding.root.setBackgroundColor(ContextCompat.getColor(requireContext(), it)) }
 
         binding.viewPager.adapter =
-            MainViewPagerAdapter(childFragmentManager, lifecycle, fragmentCreators)
+            ViewPager2Adapter(childFragmentManager, lifecycle, fragmentCreators)
 
         return binding.root
     }

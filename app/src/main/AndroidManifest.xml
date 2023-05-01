@@ -23,7 +23,7 @@
         </activity>
         <activity
             android:name=".service.aidl.ClientActivity"
-            android:exported="false" />
+            android:exported="true" />
 
         <service
             android:name=".service.aidl.RemoteService"
@@ -42,22 +42,22 @@
 
         <activity
             android:name=".jsoup.AsianToLickActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name="com.imdevil.playground.image.ImageActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".view.TouchActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name="com.imdevil.playground.service.ServiceActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".fragment.ContainerActivity"
             android:exported="true" />
         <activity
             android:name=".multirecyclerview.MultiRecyclerViewActivity"
-            android:exported="false" />
+            android:exported="true" />
 
         <service
             android:name=".media.MusicService"
@@ -72,22 +72,51 @@
 
         <activity
             android:name=".media.MusicActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".view.multistate.MultiStateActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".viewpager2.ViewPager2Activity"
-            android:exported="false" />
+            android:exported="true" />
 
         <activity
             android:name=".fragment.BottomNavigationActivity"
-            android:exported="false"
+            android:exported="true"
             android:label="@string/title_activity_bottom_navigation" />
 
         <activity
-            android:name=".view.scroll.ScrollListActivity"
-            android:exported="false" />
+            android:name=".view.scroll.ScrollMainDemoActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".view.scroll.tradition.TraditionParentInterceptActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".view.scroll.nestedScrollingParent.NestedScrollingParentActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".view.scroll.nestedScrollingParent2.NestedScrollingParent2Activity"
+            android:exported="true" />
+
+        <activity
+            android:name=".view.scroll.nestedScrollingParent2Demo.NestedScrollingParent2CollapsingActivity"
+            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar"
+            android:exported="true" />
+
+        <activity
+            android:name=".view.scroll.coordinatorLayout.CoordinatorLayoutActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".view.scroll.appbar.AppbarActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".view.offset.ViewOffsetActivity"
+            android:exported="true" />
     </application>
 
 </manifest>
