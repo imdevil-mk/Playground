@@ -117,6 +117,10 @@
         <activity
             android:name=".view.offset.ViewOffsetActivity"
             android:exported="true" />
+
+        <activity
+            android:name=".view.track.TrackActivity"
+            android:exported="true" />
     </application>
 
 </manifest>
