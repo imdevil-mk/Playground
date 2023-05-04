@@ -35,6 +35,7 @@ class RemoteService : Service() {
             books.add(book)
             book.name += " from addBookOut"
             Log.d(TAG, "addBookOut: $book")
+            notifyBooksChanged()
             return book.id
         }
 
@@ -44,10 +45,16 @@ class RemoteService : Service() {
             books.add(book)
             book.name += " from addBookInOut"
             Log.d(TAG, "addBookInOut: $book")
+            notifyBooksChanged()
         }
 
         override fun addBookOneWay(book: Book) {
-
+            Log.d(TAG, "addBookOneWay: start in ${Thread.currentThread()} $book")
+            Thread.sleep(3000)
+            books.add(book)
+            book.name += " from addBookOneWay"
+            Log.d(TAG, "addBookOneWay: $book")
+            notifyBooksChanged()
         }
 
         override fun getBookList(): MutableList<Book> {
@@ -72,6 +79,7 @@ class RemoteService : Service() {
         for (i in 0 until cb) {
             try {
                 remoteCallbackList.getBroadcastItem(i).onBookChanged(books)
+                remoteCallbackList.getBroadcastItem(i).onBookChangedOneWay(books)
             } catch (e: RemoteException) {
                 e.printStackTrace()
             }

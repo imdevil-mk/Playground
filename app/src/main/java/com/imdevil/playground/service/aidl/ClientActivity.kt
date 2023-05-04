@@ -17,7 +17,11 @@ class ClientActivity : AppCompatActivity() {
     private lateinit var remoteService: IBookManager
 
     private val deathRecipient: IBinder.DeathRecipient = IBinder.DeathRecipient {
-
+        binding.addBookIn.isEnabled = false
+        binding.addBookOut.isEnabled = false
+        binding.addBookInOut.isEnabled = false
+        binding.addBookOneWay.isEnabled = false
+        binding.getBookListOneWay.isEnabled = false
     }
 
     private val bookChangeListener: IBookChangeListener = object : IBookChangeListener.Stub() {
@@ -25,6 +29,12 @@ class ClientActivity : AppCompatActivity() {
             Log.d(TAG, "onBookChanged: start ${Thread.currentThread()}")
             Thread.sleep(3000)
             Log.d(TAG, "onBookChanged: end   ${Thread.currentThread()} $books")
+        }
+
+        override fun onBookChangedOneWay(books: MutableList<Book>?) {
+            Log.d(TAG, "onBookChangedOneWay: start ${Thread.currentThread()}")
+            Thread.sleep(3000)
+            Log.d(TAG, "onBookChangedOneWay: end   ${Thread.currentThread()} $books")
         }
     }
 
@@ -38,6 +48,7 @@ class ClientActivity : AppCompatActivity() {
             binding.addBookIn.isEnabled = true
             binding.addBookOut.isEnabled = true
             binding.addBookInOut.isEnabled = true
+            binding.addBookOneWay.isEnabled = true
             binding.getBookListOneWay.isEnabled = true
         }
 
@@ -68,9 +79,9 @@ class ClientActivity : AppCompatActivity() {
                 id = 10001
                 name = "Thinking in Java"
             }
-            Log.d(TAG, "onCreate: addBookIn start ${Thread.currentThread()} $book")
+            Log.d(TAG, "addBookIn start ${Thread.currentThread()} $book")
             remoteService.addBookIn(book)
-            Log.d(TAG, "onCreate: addBookIn end   ${Thread.currentThread()} $book")
+            Log.d(TAG, "addBookIn end   ${Thread.currentThread()} $book")
         }
 
         binding.addBookOut.setOnClickListener {
@@ -78,9 +89,9 @@ class ClientActivity : AppCompatActivity() {
                 id = 10002
                 name = "Effective Java"
             }
-            Log.d(TAG, "onCreate: addBookOut start ${Thread.currentThread()} $book")
+            Log.d(TAG, "addBookOut start ${Thread.currentThread()} $book")
             remoteService.addBookOut(book)
-            Log.d(TAG, "onCreate: addBookOut end   ${Thread.currentThread()} $book")
+            Log.d(TAG, "addBookOut end   ${Thread.currentThread()} $book")
         }
 
         binding.addBookInOut.setOnClickListener {
@@ -88,9 +99,25 @@ class ClientActivity : AppCompatActivity() {
                 id = 100003
                 name = "Crazy Android"
             }
-            Log.d(TAG, "onCreate: addBookInOut start ${Thread.currentThread()} $book")
+            Log.d(TAG, "addBookInOut start ${Thread.currentThread()} $book")
             remoteService.addBookInOut(book)
-            Log.d(TAG, "onCreate: addBookInOut end   ${Thread.currentThread()} $book")
+            Log.d(TAG, "addBookInOut end   ${Thread.currentThread()} $book")
+        }
+
+        binding.addBookOneWay.setOnClickListener {
+            val book = Book().apply {
+                id = 100004
+                name = "Code"
+            }
+            Log.d(TAG, "addBookOneWay start ${Thread.currentThread()} $book")
+            remoteService.addBookOneWay(book)
+            Log.d(TAG, "addBookOneWay end   ${Thread.currentThread()} $book")
+        }
+
+        binding.getBookListOneWay.setOnClickListener {
+            Log.d(TAG, "getBookListOneWay start ${Thread.currentThread()}")
+            val list = remoteService.bookList
+            Log.d(TAG, "getBookListOneWay end   ${Thread.currentThread()} $list")
         }
     }
 }
