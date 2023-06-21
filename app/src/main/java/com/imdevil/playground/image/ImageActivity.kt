@@ -51,7 +51,10 @@ class ImageActivity : LogActivity() {
         logBitmap("asset", asset)
         logBitmap("raw", raw)
 
-        /*          2600px * 1736px * 4byte = 18054400 byte  = 18.05 MB
+        /*
+        2600px * 1736px * 4byte = 18054400 byte  = 18.05 MB
+
+        widthInPixel * ((screenDensity / inDensity) + 0.5) * heightInPixel * ((screenDensity / inDensity) + 0.5) * onePixelBytes
 
         nodpi:          allocationByteCount = 18054400  = 18.05 MB
         ldpi-120:       allocationByteCount = 288870400 = 289 MB

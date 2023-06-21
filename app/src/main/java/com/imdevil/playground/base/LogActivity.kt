@@ -42,8 +42,8 @@ abstract class LogActivity : AppCompatActivity() {
         Log.d(getLogTag(), "onPause: ")
     }
 
-    override fun onSaveInstanceState(outState: Bundle, outPersistentState: PersistableBundle) {
-        super.onSaveInstanceState(outState, outPersistentState)
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
         Log.d(getLogTag(), "onSaveInstanceState: ")
     }
 
