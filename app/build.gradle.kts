@@ -50,6 +50,7 @@ dependencies {
     implementation(libs.android.material)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.viewpager2)
+    implementation(libs.androidx.preference)
 
     // network
     implementation(libs.okhttp.core)

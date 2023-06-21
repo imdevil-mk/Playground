@@ -18,6 +18,7 @@ androidxStartup = "1.1.1"
 androidxCoreSplashscreen = "1.0.0"
 androidxWork = "2.7.1"
 androidxAnnotation = "1.5.0"
+androidxPreference = "1.2.0"
 androidxEspresso = "3.5.0"
 androidxMacroBenchmark = "1.1.0"
 androidxMetrics = "1.0.0-alpha03"
@@ -78,6 +79,7 @@ androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation
 androidx-navigation-testing = { group = "androidx.navigation", name = "navigation-testing", version.ref = "androidxNavigation" }
 androidx-viewpager2 = { group = "androidx.viewpager2", name = "viewpager2", version.ref = "androidxViewPager2" }
 androidx-media = { group = "androidx.media", name = "media", version.ref = "androidMedia" }
+androidx-preference = { group = "androidx.preference", name = "preference", version.ref = "androidxPreference" }
 
 androidx-annotation = { group = "androidx.annotation", name = "annotation", version.ref = "androidxAnnotation" }
 androidx-core-splashscreen = { group = "androidx.core", name = "core-splashscreen", version.ref = "androidxCoreSplashscreen" }

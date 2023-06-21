@@ -2,6 +2,7 @@ package com.imdevil.playground.view
 
 import android.util.Log
 import android.view.MotionEvent
+import android.view.View
 import okhttp3.internal.toHexString
 
 fun MotionEvent.log(clzTag: String = "", methodTag: String = "") {
@@ -15,4 +16,12 @@ fun MotionEvent.log(clzTag: String = "", methodTag: String = "") {
     }
 
     Log.d(clzTag, "${methodTag}: $s")
+}
+
+fun View.goneOrVisible(visible: Boolean) {
+    visibility = if (visible) View.VISIBLE else View.GONE
+}
+
+fun View.visibleOrElse(visible: Boolean) {
+    visibility = if (visible) View.VISIBLE else View.INVISIBLE
 }

@@ -13,6 +13,7 @@ import com.imdevil.playground.fragment.ContainerActivity
 import com.imdevil.playground.image.ImageActivity
 import com.imdevil.playground.media.MusicActivity
 import com.imdevil.playground.multirecyclerview.MultiRecyclerViewActivity
+import com.imdevil.playground.preference.MySettingsActivity
 import com.imdevil.playground.service.ServiceActivity
 import com.imdevil.playground.service.aidl.ClientActivity
 import com.imdevil.playground.view.TouchActivity
@@ -53,6 +54,7 @@ class MainActivity : LogActivity() {
         setupButtonClick(R.id.navigation, BottomNavigationActivity::class.java)
         setupButtonClick(R.id.scroll, ScrollMainDemoActivity::class.java)
         setupButtonClick(R.id.track, TrackActivity::class.java)
+        setupButtonClick(R.id.settings, MySettingsActivity::class.java)
 
         mainView?.findViewById<Button>(R.id.set_back_view)?.setOnClickListener {
             if (backView == null) {

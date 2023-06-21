@@ -121,6 +121,10 @@
         <activity
             android:name=".view.track.TrackActivity"
             android:exported="true" />
+
+        <activity
+            android:name=".preference.MySettingsActivity"
+            android:exported="true" />
     </application>
 
 </manifest>
