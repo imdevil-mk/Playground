@@ -57,13 +57,13 @@ class ImageActivity : LogActivity() {
         widthInPixel * ((screenDensity / inDensity) + 0.5) * heightInPixel * ((screenDensity / inDensity) + 0.5) * onePixelBytes
 
         nodpi:          allocationByteCount = 18054400  = 18.05 MB
-        ldpi-120:       allocationByteCount = 288870400 = 289 MB
-        default-160:    allocationByteCount = 162489600 = 162 MB
-        mdpi-160:       allocationByteCount = 162489600 = 162 MB
-        hdpi-240:       allocationByteCount = 72217600  = 72.22 MB
-        xhdpi-320:      allocationByteCount = 40622400  = 40.62 MB
+        ldpi-120:       allocationByteCount = 288870400 = 18054400 * 4^2    = 289 MB
+        default-160:    allocationByteCount = 162489600 = 18054400 * 3^2    = 162 MB
+        mdpi-160:       allocationByteCount = 162489600 = 18054400 * 3^2    = 162 MB
+        hdpi-240:       allocationByteCount = 72217600  = 18054400 * 2^2    = 72.22 MB
+        xhdpi-320:      allocationByteCount = 40622400  = 18054400 * 1.5^2  = 40.62 MB
         xxhdpi-480:     allocationByteCount = 18054400  = 18.05 MB
-        xxxhdpi-640:    allocationByteCount = 10155600  = 10.16 MB
+        xxxhdpi-640:    allocationByteCount = 10155600  = 18054400 * 0.75^2 = 10.16 MB
 
         asset:          allocationByteCount = 18054400  = 18.05 MB
         raw:            allocationByteCount = 18054400  = 18.05 MB

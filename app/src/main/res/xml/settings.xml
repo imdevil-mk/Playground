@@ -1,125 +1,138 @@
 <PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <SwitchPreferenceCompat
-        app:key="notifications"
-        app:title="Enable message notifications" />
+    <Preference
+        app:key="feedback666"
+        app:summary="Report technical 2"
+        app:title="Send feedback" />
+
+    <PreferenceCategory
+        app:key="cate_0"
+        app:title="cate_0">
+        <SwitchPreferenceCompat
+            app:key="cate_0_notifications"
+            app:title="Enable message notifications" />
+
+        <Preference
+            app:key="cate_0_feedback"
+            app:summary="Report technical issues or suggest new features"
+            app:title="Send feedback" />
+    </PreferenceCategory>
 
     <Preference
-        app:key="feedback"
-        app:summary="Report technical issues or suggest new features"
+        app:key="feedback555"
+        app:summary="Report technical 2"
         app:title="Send feedback" />
 
     <PreferenceCategory
         app:key="cate_1"
         app:title="cate_1">
         <Preference
+            app:key="cate_1_feedback"
+            app:summary="Report technical issues or suggest new features"
+            app:title="Send feedback" />
+
+        <com.imdevil.playground.preference.CustomPreference
+            app:key="cate_1_custom1"
+            app:summary="Report technical 1"
+            app:allowDividerAbove="false"
+            app:title="custom1" />
+
+        <Preference
+            app:key="cate_1_feedback"
+            app:summary="Report technical 2"
+            app:title="Send feedback" />
+    </PreferenceCategory>
+
+    <Preference
+        app:key="feedback444"
+        app:summary="Report technical 2"
+        app:title="Send feedback" />
+
+    <PreferenceCategory
+        app:key="cate_3"
+        app:title="cate_3">
+        <com.imdevil.playground.preference.CustomPreference
+            app:key="custom2"
+            app:summary="Report technical 2"
+            app:title="custom2" />
+
+        <SwitchPreferenceCompat
+            app:key="notifications"
+            app:title="Enable message notifications" />
+
+        <Preference
+            app:key="feedback"
+            app:summary="Report technical issues or suggest new features"
+            app:title="Send feedback" />
+
+        <SwitchPreferenceCompat
+            app:key="notifications"
+            app:title="Enable message notifications" />
+
+        <Preference
+            app:key="feedback"
+            app:summary="Report technical issues or suggest new features"
+            app:title="Send feedback" />
+
+        <SwitchPreferenceCompat
+            app:key="notifications"
+            app:title="Enable message notifications" />
+
+        <Preference
+            app:key="feedback"
+            app:summary="Report technical issues or suggest new features"
+            app:title="Send feedback" />
+
+        <SwitchPreferenceCompat
+            app:key="notifications"
+            app:title="Enable message notifications" />
+
+        <Preference
+            app:key="feedback"
+            app:summary="Report technical issues or suggest new features"
+            app:title="Send feedback" />
+
+        <SwitchPreferenceCompat
+            app:key="notifications"
+            app:title="Enable message notifications" />
+
+        <Preference
+            app:key="feedback"
+            app:summary="Report technical issues or suggest new features"
+            app:title="Send feedback" />
+
+        <SwitchPreferenceCompat
+            app:key="notifications"
+            app:title="Enable message notifications" />
+
+        <Preference
+            app:key="feedback"
+            app:summary="Report technical issues or suggest new features"
+            app:title="Send feedback" />
+
+        <SwitchPreferenceCompat
+            app:key="notifications"
+            app:title="Enable message notifications" />
+
+        <Preference
+            app:key="feedback"
+            app:summary="Report technical issues or suggest new features"
+            app:title="Send feedback" />
+
+        <SwitchPreferenceCompat
+            app:key="notifications"
+            app:title="Enable message notifications" />
+
+        <Preference
             app:key="feedback"
             app:summary="Report technical issues or suggest new features"
             app:title="Send feedback" />
 
         <com.imdevil.playground.preference.CustomPreference
-            app:key="custom1"
-            app:summary="Report technical 1"
-            app:title="custom1" />
-
-        <Preference
-            app:key="feedback"
-            app:summary="Report technical 2"
-            app:title="Send feedback" />
+            app:key="custom3"
+            app:summary="Report technical 3"
+            app:title="custom3" />
     </PreferenceCategory>
-
-    <com.imdevil.playground.preference.CustomPreference
-        app:key="custom2"
-        app:summary="Report technical 2"
-        app:title="custom2" />
-
-    <SwitchPreferenceCompat
-        app:key="notifications"
-        app:title="Enable message notifications" />
-
-    <Preference
-        app:key="feedback"
-        app:summary="Report technical issues or suggest new features"
-        app:title="Send feedback" />
-
-    <SwitchPreferenceCompat
-        app:key="notifications"
-        app:title="Enable message notifications" />
-
-    <Preference
-        app:key="feedback"
-        app:summary="Report technical issues or suggest new features"
-        app:title="Send feedback" />
-
-    <SwitchPreferenceCompat
-        app:key="notifications"
-        app:title="Enable message notifications" />
-
-    <Preference
-        app:key="feedback"
-        app:summary="Report technical issues or suggest new features"
-        app:title="Send feedback" />
-
-    <SwitchPreferenceCompat
-        app:key="notifications"
-        app:title="Enable message notifications" />
-
-    <Preference
-        app:key="feedback"
-        app:summary="Report technical issues or suggest new features"
-        app:title="Send feedback" />
-
-    <SwitchPreferenceCompat
-        app:key="notifications"
-        app:title="Enable message notifications" />
-
-    <Preference
-        app:key="feedback"
-        app:summary="Report technical issues or suggest new features"
-        app:title="Send feedback" />
-
-    <SwitchPreferenceCompat
-        app:key="notifications"
-        app:title="Enable message notifications" />
-
-    <Preference
-        app:key="feedback"
-        app:summary="Report technical issues or suggest new features"
-        app:title="Send feedback" />
-
-    <SwitchPreferenceCompat
-        app:key="notifications"
-        app:title="Enable message notifications" />
-
-    <Preference
-        app:key="feedback"
-        app:summary="Report technical issues or suggest new features"
-        app:title="Send feedback" />
-
-    <SwitchPreferenceCompat
-        app:key="notifications"
-        app:title="Enable message notifications" />
-
-    <Preference
-        app:key="feedback"
-        app:summary="Report technical issues or suggest new features"
-        app:title="Send feedback" />
-
-    <com.imdevil.playground.preference.CustomPreference
-        app:key="custom3"
-        app:summary="Report technical 3"
-        app:title="custom3" />
-
-    <PreferenceScreen app:key="sencond_preference_scrceen">
-        <Preference
-            app:key="sencond_preference_scrceen_1"
-            app:summary="Report technical issues or suggest new features"
-            app:title="sencond_preference_scrceen_1" />
-        <Preference
-            app:key="sencond_preference_scrceen_2"
-            app:summary="Report technical issues or suggest new features"
-            app:title="sencond_preference_scrceen_1" />
-    </PreferenceScreen>
 </PreferenceScreen>
 
 

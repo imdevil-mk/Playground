@@ -4,6 +4,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 
+/*
+ * https://rain9155.github.io/categories/recyclerView/ 关于RecyclerView的分析
+ */
+
 class MultiViewsAdapter :
     ListAdapter<IRecyclerData, RecyclerView.ViewHolder>(IRecyclerDataDiffCallback()) {
 

@@ -95,8 +95,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ViewPager2"
+        app:layout_constraintEnd_toStartOf="@id/view_pager"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/image" />
+
+    <Button
+        android:id="@+id/view_pager"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ViewPager"
+        app:layout_constraintEnd_toStartOf="@id/navigation"
+        app:layout_constraintStart_toEndOf="@id/view_pager2"
+        app:layout_constraintTop_toTopOf="@id/view_pager2" />
 
     <Button
         android:id="@+id/navigation"
@@ -104,7 +114,7 @@
         android:layout_height="wrap_content"
         android:text="Navigation"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/view_pager2"
+        app:layout_constraintStart_toEndOf="@+id/view_pager"
         app:layout_constraintTop_toTopOf="@id/view_pager2" />
 
     <Button
@@ -131,8 +141,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="setContentView(back)"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/settings"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/scroll" />
 
     <Button
@@ -140,7 +150,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Settings"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/set_back_view"
-        app:layout_constraintTop_toTopOf="@id/set_back_view"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toTopOf="@id/set_back_view" />
 </androidx.constraintlayout.widget.ConstraintLayout>

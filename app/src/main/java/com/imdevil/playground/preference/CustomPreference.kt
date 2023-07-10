@@ -29,7 +29,7 @@ class CustomPreference @JvmOverloads constructor(
         Log.d(TAG, "onBindViewHolder: $key $showLoading")
 
         pb = holder.itemView.findViewById(R.id.progressBar)
-        pb.setVisibility(if (showLoading) View.VISIBLE else View.GONE)
+        pb.visibility = if (showLoading) View.VISIBLE else View.GONE
     }
 
     override fun getTitle(): CharSequence? {
