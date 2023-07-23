@@ -55,6 +55,7 @@ dependencies {
     // network
     implementation(libs.okhttp.core)
     implementation(libs.okhttp.logging)
+    implementation(libs.retrofit.core)
 
     // moshi
     implementation(libs.moshi.core)
