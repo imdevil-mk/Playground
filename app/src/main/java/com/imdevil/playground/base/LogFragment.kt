@@ -37,6 +37,8 @@ abstract class LogFragment : Fragment() {
         Log.d(getLogTag(), "onViewCreated: ")
     }
 
+    @Deprecated("Deprecated in Java")
+    @SuppressWarnings
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         Log.d(getLogTag(), "onActivityCreated: ")

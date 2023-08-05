@@ -1,137 +1,137 @@
 <PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <Preference
-        app:key="feedback666"
+        app:key="feedback_0"
         app:summary="Report technical 2"
-        app:title="Send feedback" />
+        app:title="feedback_0" />
 
     <PreferenceCategory
         app:key="cate_0"
         app:title="cate_0">
         <SwitchPreferenceCompat
-            app:key="cate_0_notifications"
-            app:title="Enable message notifications" />
+            app:key="feedback_1"
+            app:title="feedback_1" />
 
         <Preference
-            app:key="cate_0_feedback"
+            app:key="feedback_2"
             app:summary="Report technical issues or suggest new features"
-            app:title="Send feedback" />
+            app:title="feedback_2" />
     </PreferenceCategory>
 
     <Preference
-        app:key="feedback555"
+        app:key="feedback_3"
         app:summary="Report technical 2"
-        app:title="Send feedback" />
+        app:title="feedback_3" />
 
     <PreferenceCategory
         app:key="cate_1"
         app:title="cate_1">
         <Preference
-            app:key="cate_1_feedback"
+            app:key="feedback_4"
             app:summary="Report technical issues or suggest new features"
-            app:title="Send feedback" />
+            app:title="feedback_4" />
 
         <com.imdevil.playground.preference.CustomPreference
-            app:key="cate_1_custom1"
-            app:summary="Report technical 1"
             app:allowDividerAbove="false"
-            app:title="custom1" />
+            app:key="feedback_5"
+            app:summary="Report technical 1"
+            app:title="feedback_5" />
 
         <Preference
-            app:key="cate_1_feedback"
+            app:key="feedback_6"
             app:summary="Report technical 2"
-            app:title="Send feedback" />
+            app:title="feedback_6" />
     </PreferenceCategory>
 
     <Preference
-        app:key="feedback444"
+        app:key="feedback_7"
         app:summary="Report technical 2"
-        app:title="Send feedback" />
+        app:title="feedback_7" />
 
     <PreferenceCategory
         app:key="cate_3"
         app:title="cate_3">
         <com.imdevil.playground.preference.CustomPreference
-            app:key="custom2"
+            app:key="feedback_8"
             app:summary="Report technical 2"
-            app:title="custom2" />
+            app:title="feedback_8" />
 
         <SwitchPreferenceCompat
-            app:key="notifications"
-            app:title="Enable message notifications" />
+            app:key="feedback_9"
+            app:title="feedback_9" />
 
         <Preference
-            app:key="feedback"
+            app:key="feedback_10"
             app:summary="Report technical issues or suggest new features"
-            app:title="Send feedback" />
+            app:title="feedback_10" />
 
         <SwitchPreferenceCompat
-            app:key="notifications"
-            app:title="Enable message notifications" />
+            app:key="feedback_11"
+            app:title="feedback_11" />
 
         <Preference
-            app:key="feedback"
+            app:key="feedback_12"
             app:summary="Report technical issues or suggest new features"
-            app:title="Send feedback" />
+            app:title="feedback_12" />
 
         <SwitchPreferenceCompat
-            app:key="notifications"
-            app:title="Enable message notifications" />
+            app:key="feedback_13"
+            app:title="feedback_13" />
 
         <Preference
-            app:key="feedback"
+            app:key="feedback_14"
             app:summary="Report technical issues or suggest new features"
-            app:title="Send feedback" />
+            app:title="feedback_14" />
 
         <SwitchPreferenceCompat
-            app:key="notifications"
-            app:title="Enable message notifications" />
+            app:key="feedback_15"
+            app:title="feedback_15" />
 
         <Preference
-            app:key="feedback"
+            app:key="feedback_16"
             app:summary="Report technical issues or suggest new features"
-            app:title="Send feedback" />
+            app:title="feedback_16" />
 
         <SwitchPreferenceCompat
-            app:key="notifications"
-            app:title="Enable message notifications" />
+            app:key="feedback_17"
+            app:title="feedback_17" />
 
         <Preference
-            app:key="feedback"
+            app:key="feedback_18"
             app:summary="Report technical issues or suggest new features"
-            app:title="Send feedback" />
+            app:title="feedback_18" />
 
         <SwitchPreferenceCompat
-            app:key="notifications"
-            app:title="Enable message notifications" />
+            app:key="feedback_19"
+            app:title="feedback_19" />
 
         <Preference
-            app:key="feedback"
+            app:key="feedback_20"
             app:summary="Report technical issues or suggest new features"
-            app:title="Send feedback" />
+            app:title="feedback_20" />
 
         <SwitchPreferenceCompat
-            app:key="notifications"
-            app:title="Enable message notifications" />
+            app:key="feedback_21"
+            app:title="feedback_21" />
 
         <Preference
-            app:key="feedback"
+            app:key="feedback_22"
             app:summary="Report technical issues or suggest new features"
-            app:title="Send feedback" />
+            app:title="feedback_22" />
 
         <SwitchPreferenceCompat
-            app:key="notifications"
-            app:title="Enable message notifications" />
+            app:key="feedback_23"
+            app:title="feedback_23" />
 
         <Preference
-            app:key="feedback"
+            app:key="feedback_24"
             app:summary="Report technical issues or suggest new features"
-            app:title="Send feedback" />
+            app:title="feedback_24" />
 
         <com.imdevil.playground.preference.CustomPreference
-            app:key="custom3"
+            app:key="feedback_25"
             app:summary="Report technical 3"
-            app:title="custom3" />
+            app:title="feedback_25" />
     </PreferenceCategory>
 </PreferenceScreen>
 

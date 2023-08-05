@@ -25,6 +25,7 @@ android {
         }
     }
 
+    /* ksp生成的类使用AS无法访问到
     applicationVariants.all {
         val variantName = name
         sourceSets {
@@ -33,6 +34,7 @@ android {
             }
         }
     }
+    */
 }
 
 dependencies {

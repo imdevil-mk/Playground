@@ -14,8 +14,6 @@ class CustomPreference @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : Preference(context, attrs, defStyleAttr) {
 
-    private lateinit var pb: View
-
     private var count = 0
     private var showLoading = false
 
@@ -28,8 +26,12 @@ class CustomPreference @JvmOverloads constructor(
         super.onBindViewHolder(holder)
         Log.d(TAG, "onBindViewHolder: $key $showLoading")
 
-        pb = holder.itemView.findViewById(R.id.progressBar)
-        pb.visibility = if (showLoading) View.VISIBLE else View.GONE
+        val pb = holder.findViewById(R.id.progressBar)
+        pb.visibility = if (showLoading) View.VISIBLE else View.INVISIBLE
+        pb.bringToFront()
+
+        val widget = holder.findViewById(android.R.id.widget_frame)
+        widget.visibility = if (showLoading) View.VISIBLE else View.INVISIBLE
     }
 
     override fun getTitle(): CharSequence? {
