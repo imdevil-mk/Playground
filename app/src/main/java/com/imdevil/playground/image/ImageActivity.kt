@@ -21,6 +21,10 @@ class ImageActivity : LogActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_image)
 
+        val drawable = BatteryDrawable()
+        drawable.computeBattery(resources, R.drawable.battery)
+        findViewById<ImageView>(R.id.shimmer).setImageDrawable(drawable)
+
         sampleBitmap()
     }
 
