@@ -1,11 +1,16 @@
 package com.imdevil.playground
 
+import android.content.Context
+import android.graphics.PixelFormat
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import android.widget.Button
+import android.widget.TextView
+import com.imdevil.kapt.annotation.OnClick
 import com.imdevil.playground.base.LogActivity
 import com.imdevil.playground.base.setupButtonClick
 import com.imdevil.playground.fragment.BottomNavigationActivity
@@ -68,6 +73,31 @@ class MainActivity : LogActivity() {
             }
             setContentView(backView)
         }
+
+        mainView?.findViewById<Button>(R.id.window)?.setOnClickListener {
+            addTextViewWindow(baseContext)
+        }
+    }
+
+    private fun addTextViewWindow(context: Context) {
+        val text = TextView(context)
+        text.setText(R.string.app_name)
+        //关键点1
+        val mWindowManager =
+            context.applicationContext.getSystemService(Context.WINDOW_SERVICE) as WindowManager
+        val wmParams: WindowManager.LayoutParams = WindowManager.LayoutParams()
+        //关键点2
+        wmParams.type = WindowManager.LayoutParams.TYPE_SYSTEM_DIALOG
+        wmParams.format = PixelFormat.RGBA_8888
+        wmParams.width = 800
+        wmParams.height = 800
+        //关键点3
+        mWindowManager.addView(text, wmParams)
+    }
+
+    @OnClick(R.id.fragment, ScrollMainDemoActivity::class)
+    private fun testKapt() {
+
     }
 
     override fun onDestroy() {

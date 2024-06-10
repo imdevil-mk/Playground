@@ -14,6 +14,11 @@ class RemoteService : Service() {
     private val remoteCallbackList: RemoteCallbackList<IBookChangeListener> = RemoteCallbackList()
     private val books = mutableListOf<Book>()
 
+    override fun onCreate() {
+        super.onCreate()
+        Log.d(TAG, "onCreate: ")
+    }
+
     override fun onBind(intent: Intent): IBinder {
         return binder
     }
@@ -85,5 +90,10 @@ class RemoteService : Service() {
             }
         }
         remoteCallbackList.finishBroadcast()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d(TAG, "onDestroy: ")
     }
 }

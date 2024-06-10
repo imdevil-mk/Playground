@@ -2,14 +2,13 @@ package com.imdevil.playground.base
 
 import android.content.res.Configuration
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 
 abstract class LogActivity : AppCompatActivity() {
 
     open fun getLogTag(): String {
-        return this.javaClass.name
+        return this.javaClass.simpleName
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

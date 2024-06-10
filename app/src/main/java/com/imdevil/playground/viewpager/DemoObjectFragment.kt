@@ -10,7 +10,12 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.imdevil.playground.R
-import com.imdevil.playground.multirecyclerview.*
+import com.imdevil.playground.multirecyclerview.BarData
+import com.imdevil.playground.multirecyclerview.BarItemBuilder
+import com.imdevil.playground.multirecyclerview.FooData
+import com.imdevil.playground.multirecyclerview.FooItemBuilder
+import com.imdevil.playground.multirecyclerview.MultiViewsAdapter
+import com.imdevil.playground.multirecyclerview.register
 
 const val ARG_OBJECT = "object"
 
@@ -37,8 +42,8 @@ class DemoObjectFragment : Fragment() {
             }
 
             val adapter = MultiViewsAdapter()
-            adapter.registerItemBuilder(FooItemBuilder())
-            adapter.registerItemBuilder(BarItemBuilder())
+            adapter.register<FooData>(1, FooItemBuilder())
+            adapter.register<BarData>(2, BarItemBuilder())
 
             val data = listOf(
                 FooData("foo", 1),

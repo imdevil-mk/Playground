@@ -7,11 +7,14 @@ import com.imdevil.playground.base.setupButtonClick
 import com.imdevil.playground.view.offset.ViewOffsetActivity
 import com.imdevil.playground.view.scroll.appbar.AppbarActivity
 import com.imdevil.playground.view.scroll.coordinatorLayout.CoordinatorLayoutActivity
+import com.imdevil.playground.view.scroll.horizontal.HorizontalScrollActivity
 import com.imdevil.playground.view.scroll.nestedScrollingParent.NestedScrollingParentActivity
 import com.imdevil.playground.view.scroll.nestedScrollingParent2.NestedScrollingParent2Activity
 import com.imdevil.playground.view.scroll.nestedScrollingParent2Demo.NestedScrollingParent2CollapsingActivity
 import com.imdevil.playground.view.scroll.tradition.TraditionParentInterceptActivity
 
+// https://andyjennifer.com/
+// https://www.wanandroid.com/blog/show/2761
 class ScrollMainDemoActivity : AppCompatActivity(R.layout.activity_scroll_main_demo) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,5 +30,6 @@ class ScrollMainDemoActivity : AppCompatActivity(R.layout.activity_scroll_main_d
         setupButtonClick(R.id.nested_scrolling_coordinator, CoordinatorLayoutActivity::class.java)
         setupButtonClick(R.id.app_bar_layout, AppbarActivity::class.java)
         setupButtonClick(R.id.view_offset, ViewOffsetActivity::class.java)
+        setupButtonClick(R.id.horizontal_scroll, HorizontalScrollActivity::class.java)
     }
 }

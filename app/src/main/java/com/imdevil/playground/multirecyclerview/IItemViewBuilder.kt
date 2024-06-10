@@ -5,26 +5,22 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.imdevil.playground.databinding.BarItemBinding
 import com.imdevil.playground.databinding.FooItemBinding
-
-import kotlin.reflect.KClass
+import com.imdevil.playground.databinding.ViewListFooItemBinding
+import com.squareup.moshi.Types
+import java.lang.reflect.Type
 
 interface IItemViewBuilder<T : IRecyclerData> {
-    var dataType: KClass<T>
-    var viewType: Int
-
     fun onCreateViewHolder(parent: ViewGroup): RecyclerView.ViewHolder
 
     fun onBindViewHolder(holder: RecyclerView.ViewHolder, data: IRecyclerData)
 }
 
-abstract class AbstractItemViewBuilder<T : IRecyclerData>(
-    type: KClass<T>,
-    override var viewType: Int
-) : IItemViewBuilder<T> {
-    override var dataType: KClass<T> = type
-}
+abstract class AbsItemViewBuilder<T : IRecyclerData>(
+    val viewType: Int,
+    val dataType: Type,
+) : IItemViewBuilder<T>
 
-class FooItemBuilder : AbstractItemViewBuilder<FooData>(FooData::class, 0) {
+class FooItemBuilder : AbsItemViewBuilder<FooData>(0, FooData::class.java) {
     override fun onCreateViewHolder(parent: ViewGroup): RecyclerView.ViewHolder {
         return FooItemViewHolder(
             FooItemBinding.inflate(
@@ -48,7 +44,7 @@ class FooItemBuilder : AbstractItemViewBuilder<FooData>(FooData::class, 0) {
     }
 }
 
-class BarItemBuilder : AbstractItemViewBuilder<BarData>(BarData::class, 1) {
+class BarItemBuilder : AbsItemViewBuilder<BarData>(1, BarData::class.java) {
     override fun onCreateViewHolder(parent: ViewGroup): RecyclerView.ViewHolder {
         return BarItemViewHolder(
             BarItemBinding.inflate(
@@ -67,6 +63,34 @@ class BarItemBuilder : AbstractItemViewBuilder<BarData>(BarData::class, 1) {
         RecyclerView.ViewHolder(binding.root) {
         fun bind(data: BarData) {
             binding.name.text = data.name
+        }
+    }
+}
+
+class ViewListItemBuilder : AbsItemViewBuilder<ViewList<FooData>>(
+    2,
+    Types.newParameterizedType(ViewList::class.java, FooData::class.java)
+) {
+    override fun onCreateViewHolder(parent: ViewGroup): RecyclerView.ViewHolder {
+        return ViewListFooHolder(
+            ViewListFooItemBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
+        )
+    }
+
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, data: IRecyclerData) {
+        (holder as ViewListFooHolder).bind(data as ViewList<FooData>)
+    }
+
+    class ViewListFooHolder(private val binding: ViewListFooItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun bind(data: ViewList<FooData>) {
+            binding.name.text = data.list[0]!!.name
+            binding.name1.text = data.list[1]!!.name
+            binding.name2.text = data.list[2]!!.name
         }
     }
 }

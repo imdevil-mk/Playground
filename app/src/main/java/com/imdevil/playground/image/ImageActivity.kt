@@ -25,7 +25,7 @@ class ImageActivity : LogActivity() {
         drawable.computeBattery(resources, R.drawable.battery)
         findViewById<ImageView>(R.id.shimmer).setImageDrawable(drawable)
 
-        sampleBitmap()
+        calculateSize()
     }
 
     private fun calculateSize() {

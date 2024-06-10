@@ -39,6 +39,7 @@ class NestedScrollingParentLayout @JvmOverloads constructor(
      * @param axes     当前滑动的方向
      */
     override fun onStartNestedScroll(child: View, target: View, axes: Int): Boolean {
+        Log.d(TAG, "onStartNestedScroll: ${child.id} ${target.id}")
         return axes and ViewCompat.SCROLL_AXIS_VERTICAL != 0
     }
 

@@ -109,6 +109,12 @@ class ContainerActivity : LogActivity() {
                 supportFragmentManager.findFragmentByTag("add")?.let { attach(it) }
             }
         }
+
+        binding.attachNew.setOnClickListener {
+            supportFragmentManager.commit {
+                attach(ColorLogFragment.newInstance("add_new", R.color.peachpuff))
+            }
+        }
     }
 }
 

@@ -123,6 +123,10 @@
             android:exported="true" />
 
         <activity
+            android:name=".view.scroll.horizontal.HorizontalScrollActivity"
+            android:exported="true" />
+
+        <activity
             android:name=".view.track.TrackActivity"
             android:exported="true" />
 

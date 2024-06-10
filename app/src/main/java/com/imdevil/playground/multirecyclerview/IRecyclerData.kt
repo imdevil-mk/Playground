@@ -2,6 +2,9 @@ package com.imdevil.playground.multirecyclerview
 
 import android.util.Log
 import androidx.recyclerview.widget.DiffUtil
+import com.squareup.moshi.Types
+import java.lang.reflect.Type
+
 
 private const val TAG = "IRecyclerData"
 
@@ -34,6 +37,7 @@ data class BarData(
             Log.d(TAG, "areItemsTheSame: BarData ${oldItem == this}")
             oldItem == this
         }
+
         else -> {
             Log.d(TAG, "areContentsTheSame: BarData false")
             false
@@ -45,10 +49,45 @@ data class BarData(
             Log.d(TAG, "areItemsTheSame: BarData ${oldItem == this}")
             oldItem == this
         }
+
         else -> {
             Log.d(TAG, "areContentsTheSame: BarData false")
             false
         }
+    }
+}
+
+data class ViewList<T : IRecyclerData>(
+    val dataType: Type,
+    val list: List<T>
+) : IRecyclerData {
+    override fun areItemsTheSame(oldItem: IRecyclerData) = when (oldItem) {
+        is ViewList<*> -> oldItem == this
+        else -> false
+    }
+
+    override fun areContentsTheSame(oldItem: IRecyclerData) = when (oldItem) {
+        is ViewList<*> -> {
+            var same = true
+            if (oldItem.list.size != this.list.size) {
+                same = false
+            } else {
+                for ((index, newItem) in list.withIndex()) {
+                    val old = oldItem.list[index]
+                    if (!newItem.areContentsTheSame(old)) {
+                        same = false
+                        break
+                    }
+                }
+            }
+            same
+        }
+
+        else -> false
+    }
+
+    fun getParameterType(): Type {
+        return Types.newParameterizedType(ViewList::class.java, dataType)
     }
 }
 

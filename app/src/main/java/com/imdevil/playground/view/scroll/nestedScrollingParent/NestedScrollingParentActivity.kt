@@ -1,6 +1,7 @@
 package com.imdevil.playground.view.scroll.nestedScrollingParent
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
@@ -36,6 +37,8 @@ class NestedScrollingParentActivity : AppCompatActivity(R.layout.activity_nested
 
         val pager = findViewById<ViewPager2>(R.id.pager)
         val tabLayout = findViewById<TabLayout>(R.id.tab_layout)
+        Log.d("TAG", "onCreate: pager = ${R.id.pager}")
+        Log.d("TAG", "onCreate: tabLayout = ${R.id.tab_layout}")
 
         pager.adapter = ViewPager2Adapter(supportFragmentManager, lifecycle, fragmentCreators)
         TabLayoutMediator(tabLayout, pager) { tab, position ->

@@ -146,4 +146,12 @@
         app:layout_constraintStart_toEndOf="@id/detach"
         app:layout_constraintTop_toTopOf="@id/hide" />
 
+    <Button
+        android:id="@+id/attach_new"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="attach_new"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/hide" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,8 +1,11 @@
 package com.imdevil.playground.multirecyclerview
 
+import android.util.Log
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import java.lang.reflect.Type
+import kotlin.reflect.typeOf
 
 /*
  * https://rain9155.github.io/categories/recyclerView/ 关于RecyclerView的分析
@@ -11,33 +14,69 @@ import androidx.recyclerview.widget.RecyclerView
 class MultiViewsAdapter :
     ListAdapter<IRecyclerData, RecyclerView.ViewHolder>(IRecyclerDataDiffCallback()) {
 
-    private val itemBuildersMap = mutableMapOf<Int, IItemViewBuilder<*>>()
+    private val itemBuildersViewTypeMap = mutableMapOf<Int, IItemViewBuilder<*>>()
+    private val dataTypeToViewTypeMap = mutableMapOf<Type, Int>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return itemBuildersMap[viewType]!!.onCreateViewHolder(parent)
+        return itemBuildersViewTypeMap[viewType]!!.onCreateViewHolder(parent)
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        //TODO two many loops
-        return itemBuildersMap[getItemViewType(position)]!!.onBindViewHolder(
+        return itemBuildersViewTypeMap[getItemViewType(position)]!!.onBindViewHolder(
             holder,
             getItem(position)
         )
     }
 
-
     override fun getItemViewType(position: Int): Int {
-        //TODO two many loops
         val data = getItem(position)
-        for (value in itemBuildersMap.values) {
-            if (value.dataType.isInstance(data)) {
-                return value.viewType
-            }
+        val dataType: Type = data.javaClass
+
+        val parameterizedType = if (data is ViewList<*>) {
+            data.getParameterType()
+        } else {
+            dataType
         }
-        return -1
+        return dataTypeToViewTypeMap[parameterizedType] ?: -1
     }
 
-    fun <T : IRecyclerData> registerItemBuilder(builder: AbstractItemViewBuilder<T>) {
-        itemBuildersMap[builder.viewType] = builder
+    fun <T : IRecyclerData> registerItemBuilder(
+        itemBuilder: AbsItemViewBuilder<T>
+    ) {
+        Log.i(
+            TAG,
+            "registerItemBuilder: viewType = ${itemBuilder.viewType} dataType = ${itemBuilder.dataType}"
+        )
+        itemBuildersViewTypeMap[itemBuilder.viewType] = itemBuilder
+        dataTypeToViewTypeMap[itemBuilder.dataType] = itemBuilder.viewType
     }
+
+    fun <T : IRecyclerData> registerItemBuilder(
+        viewType: Int,
+        dataType: Type,
+        itemBuilder: IItemViewBuilder<T>
+    ) {
+        Log.i(TAG, "registerItemBuilder: viewType = $viewType dataType = $dataType")
+        itemBuildersViewTypeMap[viewType] = itemBuilder
+        dataTypeToViewTypeMap[dataType] = viewType
+    }
+
+    companion object {
+        private const val TAG = "MultiViewsAdapter"
+    }
+}
+
+inline fun <reified T : IRecyclerData> MultiViewsAdapter.register(
+    viewType: Int,
+    itemBuilder: IItemViewBuilder<T>
+) {
+    registerItemBuilder(viewType, typeOf<T>()::class.java, itemBuilder)
+}
+
+inline fun <reified T : IRecyclerData> MultiViewsAdapter.register(
+    viewType: Int,
+    dataType: Type,
+    itemBuilder: IItemViewBuilder<T>
+) {
+    registerItemBuilder(viewType, dataType, itemBuilder)
 }
