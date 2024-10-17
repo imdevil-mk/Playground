@@ -26,6 +26,7 @@ import com.imdevil.playground.view.multistate.MultiStateActivity
 import com.imdevil.playground.view.scroll.ScrollMainDemoActivity
 import com.imdevil.playground.view.track.TrackActivity
 import com.imdevil.playground.viewpager.ViewPagerActivity
+import com.imdevil.playground.viewpager2.VerticalVp2Activity
 import com.imdevil.playground.viewpager2.ViewPager2Activity
 
 class MainActivity : LogActivity() {
@@ -58,6 +59,7 @@ class MainActivity : LogActivity() {
         setupButtonClick(R.id.multi_state_view, MultiStateActivity::class.java)
         setupButtonClick(R.id.view_pager2, ViewPager2Activity::class.java)
         setupButtonClick(R.id.view_pager, ViewPagerActivity::class.java)
+        setupButtonClick(R.id.vertical_vp2, VerticalVp2Activity::class.java)
         setupButtonClick(R.id.navigation, BottomNavigationActivity::class.java)
         setupButtonClick(R.id.scroll, ScrollMainDemoActivity::class.java)
         setupButtonClick(R.id.track, TrackActivity::class.java)

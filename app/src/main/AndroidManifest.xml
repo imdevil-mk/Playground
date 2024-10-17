@@ -79,6 +79,9 @@
         <activity
             android:name=".viewpager2.ViewPager2Activity"
             android:exported="true" />
+        <activity
+            android:name=".viewpager2.VerticalVp2Activity"
+            android:exported="true" />
 
         <activity
             android:name=".viewpager.ViewPagerActivity"
@@ -107,8 +110,8 @@
 
         <activity
             android:name=".view.scroll.nestedScrollingParent2Demo.NestedScrollingParent2CollapsingActivity"
-            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar"
-            android:exported="true" />
+            android:exported="true"
+            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
 
         <activity
             android:name=".view.scroll.coordinatorLayout.CoordinatorLayoutActivity"

@@ -1,4 +1,4 @@
-package com.imdevil.playground.view.scroll
+package com.imdevil.playground.demo
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,8 +8,11 @@ import android.widget.FrameLayout
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.imdevil.playground.R
+import com.imdevil.playground.view.scroll.DemoListAdapter
+import com.imdevil.playground.view.scroll.DemoListFragment
+import com.imdevil.playground.view.scroll.obtainSimpleListData
 
-class DemoListFragment : Fragment() {
+class DemoNestedScrollableListFragment : Fragment() {
     private var msg: String? = null
     private var color: Int? = null
 
@@ -25,7 +28,7 @@ class DemoListFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_demo_list, container, false)
+        return inflater.inflate(R.layout.fragment_demo_nested_scrollable_list, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
