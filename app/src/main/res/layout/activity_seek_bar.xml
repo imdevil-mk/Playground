@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ProgressBar
+        android:id="@+id/vertical_pb"
+        android:layout_width="30dp"
+        android:layout_height="400dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="64dp"
+        android:indeterminateOnly="false"
+        android:max="100"
+        android:progress="70"
+        android:progressDrawable="@drawable/progress_vertical_gradient_simple_drawable"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatSeekBar
+        android:id="@+id/vertical_seekbar"
+        android:layout_width="30dp"
+        android:layout_height="400dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="64dp"
+        android:indeterminateOnly="false"
+        android:thumb="@null"
+        android:max="100"
+        android:progress="70"
+        android:progressDrawable="@drawable/progress_vertical_gradient_simple_drawable"
+        app:layout_constraintStart_toEndOf="@id/vertical_pb"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.imdevil.playground.seekbar.VerticalSeekBar
+        android:id="@+id/custom_vertical_seekbar"
+        android:layout_width="30dp"
+        android:layout_height="400dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="64dp"
+        android:indeterminateOnly="false"
+        android:thumb="@null"
+        android:max="100"
+        android:progress="70"
+        android:progressDrawable="@drawable/progress_vertical_gradient_simple_drawable"
+        app:layout_constraintStart_toEndOf="@id/vertical_seekbar"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

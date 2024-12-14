@@ -136,6 +136,8 @@
         <activity
             android:name=".preference.MySettingsActivity"
             android:exported="true" />
+
+        <activity android:name=".seekbar.SeekBarActivity" />
     </application>
 
 </manifest>

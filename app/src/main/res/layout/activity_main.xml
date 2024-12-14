@@ -159,8 +159,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Window"
-        app:layout_constraintTop_toBottomOf="@id/set_back_view"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/set_back_view" />
 
     <Button
         android:id="@+id/vertical_vp2"
@@ -171,4 +171,12 @@
         app:layout_constraintBottom_toBottomOf="@+id/window"
         app:layout_constraintStart_toEndOf="@+id/window"
         app:layout_constraintTop_toTopOf="@+id/window" />
+
+    <Button
+        android:id="@+id/seekbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SeekBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/window" />
 </androidx.constraintlayout.widget.ConstraintLayout>

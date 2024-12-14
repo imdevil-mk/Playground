@@ -19,6 +19,7 @@ import com.imdevil.playground.image.ImageActivity
 import com.imdevil.playground.media.MusicActivity
 import com.imdevil.playground.multirecyclerview.MultiRecyclerViewActivity
 import com.imdevil.playground.preference.MySettingsActivity
+import com.imdevil.playground.seekbar.SeekBarActivity
 import com.imdevil.playground.service.ServiceActivity
 import com.imdevil.playground.service.aidl.ClientActivity
 import com.imdevil.playground.view.TouchActivity
@@ -64,6 +65,7 @@ class MainActivity : LogActivity() {
         setupButtonClick(R.id.scroll, ScrollMainDemoActivity::class.java)
         setupButtonClick(R.id.track, TrackActivity::class.java)
         setupButtonClick(R.id.settings, MySettingsActivity::class.java)
+        setupButtonClick(R.id.seekbar, SeekBarActivity::class.java)
 
         mainView?.findViewById<Button>(R.id.set_back_view)?.setOnClickListener {
             if (backView == null) {
