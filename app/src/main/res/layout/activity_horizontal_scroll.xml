@@ -9,6 +9,7 @@
         android:layout_width="200dp"
         android:layout_height="100dp"
         android:background="@color/orange"
+        android:overScrollMode="always"
         android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -57,37 +58,37 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/coral"
-                android:text="TEXT_1" />
+                android:text="TEXT_7" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/azure"
-                android:text="TEXT_2" />
+                android:text="TEXT_8" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/coral"
-                android:text="TEXT_3" />
+                android:text="TEXT_9" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/azure"
-                android:text="TEXT_4" />
+                android:text="TEXT_10" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/coral"
-                android:text="TEXT_5" />
+                android:text="TEXT_11" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/azure"
-                android:text="TEXT_6" />
+                android:text="TEXT_12" />
 
         </LinearLayout>
     </com.imdevil.playground.view.scroll.horizontal.MyHorizontalScrollView>
