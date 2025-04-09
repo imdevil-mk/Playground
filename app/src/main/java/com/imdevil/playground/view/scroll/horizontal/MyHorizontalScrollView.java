@@ -23,6 +23,7 @@ import java.util.List;
  * https://blog.csdn.net/shensky711/article/details/115624628
  * https://juejin.cn/post/6844903922671288333
  * https://juejin.cn/post/7447843704495849498
+ * https://blog.hufeifei.cn/2016/12/Android/scroll-translation-LayoutParams/index.html
  */
 public class MyHorizontalScrollView extends FrameLayout {
     private static final String TAG = "MyHorizontalScrollView";

@@ -15,6 +15,7 @@ import javax.lang.model.element.TypeElement
 import javax.lang.model.util.Elements
 import javax.tools.Diagnostic
 
+// https://www.cnblogs.com/linyb-geek/p/17049210.html
 class OnClickProcessor : AbstractProcessor() {
 
     private lateinit var messager: Messager
