@@ -20,3 +20,4 @@ rootProject.name = "Playground"
 include(":app")
 include(":lib_kapt")
 include(":lib_ksp")
+include(":lib_sdk")

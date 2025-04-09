@@ -38,6 +38,7 @@ android {
 }
 
 dependencies {
+    implementation(project(":lib_sdk"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
