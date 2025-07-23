@@ -41,6 +41,7 @@ lint = "30.3.1"
 moshi = "1.14.0"
 kotlinpoet = "1.13.0"
 glide = "4.14.2"
+gson = "2.8.8"
 
 kotlin = "1.7.20"
 kotlinxCoroutines = "1.6.4"
@@ -69,6 +70,7 @@ android-material = { group = "com.google.android.material", name = "material", v
 
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "androidxCore" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "androidxAppCompat" }
+androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "androidxActivity" }
 androidx-activity-ktx = { group = "androidx.activity", name = "activity-ktx", version.ref = "androidxActivity" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "androidxConstraintlayout" }
 androidx-lifecycle-livedata-ktx = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "androidxLifecycle" }
@@ -122,6 +124,7 @@ moshi-core = { group = "com.squareup.moshi", name = "moshi", version.ref = "mosh
 moshi-kotlin = { group = "com.squareup.moshi", name = "moshi-kotlin", version.ref = "moshi" }
 moshi-kotlin-codegen = { group = "com.squareup.moshi", name = "moshi-kotlin-codegen", version.ref = "moshi" }
 kotlin-poet = { group = "com.squareup", name = "kotlinpoet", version.ref = "kotlinpoet"}
+gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
 
 room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
 room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }

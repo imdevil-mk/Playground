@@ -138,6 +138,16 @@
             android:exported="true" />
 
         <activity android:name=".seekbar.SeekBarActivity" />
+
+        <service
+            android:name=".assistant.CommandService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <!-- 自定义 action 用于 adb 启动 -->
+                <action android:name="assistant.cmd.tts" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

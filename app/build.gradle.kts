@@ -42,6 +42,7 @@ dependencies {
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.activity)
     implementation(libs.androidx.activity.ktx)
     implementation(libs.androidx.fragment.ktx)
     implementation(libs.androidx.navigation.fragment.ktx)
@@ -76,6 +77,9 @@ dependencies {
 
     implementation(project(":lib_kapt"))
     kapt(project(":lib_kapt"))
+
+    implementation(project(":lib_assistant"))
+    kapt(project(":lib_assistant_compiler"))
 
     implementation(project(":lib_ksp"))
     ksp(project(":lib_ksp"))
