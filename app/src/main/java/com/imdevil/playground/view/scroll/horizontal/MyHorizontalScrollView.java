@@ -231,12 +231,18 @@ public class MyHorizontalScrollView extends FrameLayout {
                     mLastMotionX = x;
 
                     final int oldX = getScrollX();
-                    final int range = getScrollRange();
+                    final int range = getScrollRange(); // 可以拖动出来的长度， 我们一般设置为内容不可见的那部分长度，确保内容可以拖动出来可见
+                    final int maxOverScrollRange = getMaxOverScrollRange(); // 当range=0时， maxOverScrollRange仍然可以导致内容可以滑动
                     final int overScrollMode = getOverScrollMode();
                     final boolean canOverScroll = overScrollMode == OVER_SCROLL_ALWAYS ||
                             (overScrollMode == OVER_SCROLL_IF_CONTENT_SCROLLS && range > 0);
-                    Log.d(TAG, "onTouchEvent: " + MotionEvent.actionToString(action) + " canOverScroll = " + canOverScroll + " delta = [" + deltaX + ",0] scroll = [" + getScrollX() + ",0] scrollRange = [" + range + ",0]  maxOverScroll = [" + mOverscrollDistance + ",0]");
-                    overScrollBy(deltaX, 0, getScrollX(), 0, range, 0, getMaxOverScrollRange(), 0, true);
+                    Log.d(TAG, "onTouchEvent: " + MotionEvent.actionToString(action)
+                            + " canOverScroll = " + canOverScroll
+                            + " delta = [" + deltaX + ",0]"
+                            + " scrolled = [" + getScrollX() + ",0]"
+                            + " scrollRange = [" + range + ",0]"
+                            + "  maxOverScroll = [" + maxOverScrollRange + ",0]");
+                    overScrollBy(deltaX, 0, getScrollX(), 0, range, 0, maxOverScrollRange, 0, true);
                 }
                 break;
             case MotionEvent.ACTION_UP:
@@ -246,14 +252,24 @@ public class MyHorizontalScrollView extends FrameLayout {
                     int initialVelocity = (int) velocityTracker.getXVelocity(mActivePointerId);
                     if (getChildCount() > 0) {
                         if (Math.abs(initialVelocity) > mMinimumVelocity) {
-                            Log.d(TAG, "onTouchEvent: " + MotionEvent.actionToString(action) + " filing initialVelocity = " + initialVelocity + " scroll = [" + getScrollX() + "," + getScrollY() + "]");
+                            Log.d(TAG, "onTouchEvent: " + MotionEvent.actionToString(action)
+                                    + " filing initialVelocity = " + initialVelocity
+                                    + " scrolled = [" + getScrollX() + "," + getScrollY() + "]"
+                            );
                             filing(-initialVelocity);
                         } else {
-                            if (mScroller.springBack(getScrollX(), getScrollY(), 0, getScrollRange(), 0, 0)) {
-                                Log.d(TAG, "onTouchEvent: " + MotionEvent.actionToString(action) + " springBack initialVelocity = " + initialVelocity + " scroll = [" + getScrollX() + "," + getScrollY() + "]");
+                            // minX maxX
+                            if (mScroller.springBack(getScrollX(), getScrollY(), 0, getScrollRange() + 100, 0, 0)) {
+                                Log.d(TAG, "onTouchEvent: " + MotionEvent.actionToString(action)
+                                        + " springBack initialVelocity = " + initialVelocity
+                                        + " scrolled = [" + getScrollX() + "," + getScrollY() + "]"
+                                );
                                 postInvalidateOnAnimation();
                             } else {
-                                Log.d(TAG, "onTouchEvent: " + MotionEvent.actionToString(action) + " initialVelocity = " + initialVelocity + " scroll = [" + getScrollX() + "," + getScrollY() + "]");
+                                Log.d(TAG, "onTouchEvent: " + MotionEvent.actionToString(action)
+                                        + " initialVelocity = " + initialVelocity
+                                        + " scrolled = [" + getScrollX() + "," + getScrollY() + "]"
+                                );
                             }
                         }
                     }
@@ -264,7 +280,9 @@ public class MyHorizontalScrollView extends FrameLayout {
                 }
                 break;
             case MotionEvent.ACTION_CANCEL:
-                Log.d(TAG, "onTouchEvent: " + MotionEvent.actionToString(action) + " scroll = [" + getScrollX() + "," + getScrollY() + "]");
+                Log.d(TAG, "onTouchEvent: " + MotionEvent.actionToString(action)
+                        + " scrolled = [" + getScrollX() + "," + getScrollY() + "]"
+                );
                 if (mIsBeingDragged && getChildCount() == 0) {
                     if (mScroller.springBack(getScrollX(), getScrollY(), 0, getScrollRange(), 0, 0)) {
                         postInvalidateOnAnimation();
@@ -281,7 +299,9 @@ public class MyHorizontalScrollView extends FrameLayout {
     @Override
     protected void onOverScrolled(int scrollX, int scrollY, boolean clampedX, boolean clampedY) {
         if (!mScroller.isFinished()) {
-            Log.d(TAG, "onOverScrolled: 1 scroll = [" + scrollX + "," + scrollY + "] " + clampedX + " " + clampedY);
+            Log.d(TAG, "onOverScrolled: 1 scrolled = [" + scrollX + "," + scrollY + "] "
+                    + clampedX + " " + clampedY
+            );
             final int oldX = getScrollX();
             final int oldY = getScrollY();
 
@@ -293,7 +313,9 @@ public class MyHorizontalScrollView extends FrameLayout {
                 mScroller.springBack(getScrollX(), getScrollY(), 0, getScrollRange(), 0, 0);
             }
         } else {
-            Log.d(TAG, "onOverScrolled: 2 scrollX = " + scrollX + " scrollY = " + scrollY + " " + clampedX + " " + clampedY);
+            Log.d(TAG, "onOverScrolled: 2 scrolled = [" + scrollX + "," + scrollY + "] "
+                    + clampedX + " " + clampedY
+            );
             super.scrollTo(scrollX, scrollY);
         }
 
@@ -314,7 +336,9 @@ public class MyHorizontalScrollView extends FrameLayout {
                 final int overscrollMode = getOverScrollMode();
                 final boolean canOverscroll = overscrollMode == OVER_SCROLL_ALWAYS ||
                         (overscrollMode == OVER_SCROLL_IF_CONTENT_SCROLLS && range > 0);
-                Log.d(TAG, "computeScroll: scroll = [" + oldX + "," + oldY + "] --> now = [" + x + "," + y + "] canOverscroll = " + canOverscroll);
+                Log.d(TAG, "computeScroll: canOverscroll = " + canOverscroll
+                        + " scrolled = [" + oldX + "," + oldY + "] --> now = [" + x + "," + y + "]"
+                );
 
                 overScrollBy(x - oldX, y - oldY, oldX, oldY, range, 0,
                         getMaxOverScrollRange(), 0, false);
@@ -335,9 +359,15 @@ public class MyHorizontalScrollView extends FrameLayout {
     public void scrollTo(int x, int y) {
         /*if (getChildCount() > 0) {
             View child = getChildAt(0);
-            int clampedX = MathUtils.clamp(x, -getMaxOverScrollRange(), getMaxOverScrollRange() + child.getWidth() + getWidth() - getPaddingLeft() - getPaddingRight());
+            int clampedX = MathUtils.clamp(
+                    x,
+                    -getMaxOverScrollRange(),
+                    getMaxOverScrollRange() + child.getWidth() + getWidth() - getPaddingLeft() - getPaddingRight()
+            );
             int clampedY = clamp(y, getHeight() - getPaddingTop() - getPaddingBottom(), child.getHeight());
-            Log.d(TAG, "scrollTo: scrolled = [" + getScrollX() + "," + getScrollY() + "] [" + x + "," + y + "] --> [" + clampedX + "," + clampedY + "]");
+            Log.d(TAG, "scrollTo: scrolled = [" + getScrollX() + "," + getScrollY() + "]"
+                    + " [" + x + "," + y + "] --> [" + clampedX + "," + clampedY + "]"
+            );
             if (clampedX != getScrollX() || clampedY != getScrollY()) {
                 super.scrollTo(clampedX, clampedY);
             }
@@ -353,10 +383,17 @@ public class MyHorizontalScrollView extends FrameLayout {
 
             int maxScroll = Math.max(0, right - width);
 
-            Log.d(TAG, "filing: " + velocityX + " maxScroll = " + maxScroll + " scroll = [" + getScrollX() + "," + getScrollY() + "]");
+            Log.d(TAG, "filing: " + velocityX + " maxScroll = " + maxScroll
+                    + " scrolled = [" + getScrollX() + "," + getScrollY() + "]"
+            );
 
             {
-                mScroller.fling(getScrollX(), getScrollY(), velocityX, 0, 0, getScrollRange(), 0, 0, getMaxOverScrollRange() / 2, 0);
+                mScroller.fling(getScrollX(), getScrollY(),
+                        velocityX, 0,
+                        0, getScrollRange(),
+                        0, 0,
+                        getMaxOverScrollRange() / 2, 0
+                );
 
                 final boolean movingRight = velocityX > 0;
 
@@ -420,6 +457,13 @@ public class MyHorizontalScrollView extends FrameLayout {
         int scrollRange = 0;
         if (getChildCount() > 0) {
             View child = getChildAt(0);
+            /*Log.d(TAG, "getScrollRange:"
+                    + " child.getWidth()=" + child.getWidth()
+                    + " getWidth()=" + getWidth()
+                    + " getPaddingLeft()=" + getPaddingLeft()
+                    + " getPaddingRight()=" + getPaddingRight()
+            );*/
+            // child.getWidth() 会大于可显示区域
             scrollRange = Math.max(0, child.getWidth() - (getWidth() - getPaddingLeft() - getPaddingRight()));
         }
         return scrollRange;

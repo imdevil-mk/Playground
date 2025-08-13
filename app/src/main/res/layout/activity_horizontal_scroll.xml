@@ -9,8 +9,10 @@
         android:layout_width="200dp"
         android:layout_height="100dp"
         android:background="@color/orange"
-        android:overScrollMode="always"
         android:orientation="horizontal"
+        android:overScrollMode="always"
+        android:paddingHorizontal="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -72,24 +74,6 @@
                 android:background="@color/coral"
                 android:text="TEXT_9" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@color/azure"
-                android:text="TEXT_10" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@color/coral"
-                android:text="TEXT_11" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@color/azure"
-                android:text="TEXT_12" />
-
         </LinearLayout>
     </com.imdevil.playground.view.scroll.horizontal.MyHorizontalScrollView>
 
@@ -97,10 +81,11 @@
         android:id="@+id/smooth_scroll"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
         android:text="smooth_scroll"
-        app:layout_constraintStart_toEndOf="@id/my_horizontal_scroll_view"
-        app:layout_constraintTop_toTopOf="@id/my_horizontal_scroll_view" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/my_horizontal_scroll_view" />
 
     <FrameLayout
         android:id="@+id/frame_layout"
@@ -178,7 +163,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/coral"
-                android:text="TEXT_1" />
+                android:text="HorizontalScrollView" />
 
             <TextView
                 android:layout_width="wrap_content"
